@@ -5,9 +5,9 @@
 ```
   O Mercado Privado se trata de uma aplicação voltado para o negócio livre em redes privadas. Com intuito de aquecer o mercado nacional através da livre concorrencia de usuarios seletos e qualificados. O sistem será utilizado para as pessoas que desejam realizar confiabilidade e facilidade em compras online além das pessoas que desejam anunciar seus produtos para venda.
   Devido a alta de marketplaces na atualidade, o Mecado Privado tem como objetivo superar os outros marketplaces e assim gerar lucro sobre os usuários em atualizações futuras.
-  O objetivo do Mercado Privado é se tornar um intermediario entra a pessoa que de deseja 
-  O nosso sistema irá abranger 3 tipos de usuário, sendo eles o Usuário Consumidor(Aquele que busca comprar um produto), Usuário Fornecedor(Aquele que proucura ofertar um produto em nosso sistema).
-``` 
+  O objetivo do Mercado Privado é se tornar um intermediario entra a pessoa que de deseja.
+  O sistema atrair tanto o Consumidor(Aquele que busca comprar um produto) quanto o Empreendedor(Aquele que procura ofertar um produto em nosso sistema).
+```
 
 ## Visão do Produto
 ----
@@ -24,18 +24,21 @@
 ## Características do produto / Atributos das características
 ----
 ```
-![teste image 1](docs\Dark_Saitama.jpg)
-![teste image 2](docs\Dark_Saitama.jpg)](docs\Dark_Saitama.jpg)
-![teste image 3](https://cldup.com/dTxpPi9lDf.thumb.png)](https://nodesource.com/products/nsolid)
-
+  Característica1     | Valor Em Escala  |
+  ------------------- | ---------------- |
+  Baixo Custo         | 10               |
+  Desempenho          | 10               |
+  Estabilidade        | 9                |
+  Acessivel           | 9                |
 ```
 ## Casos de Uso
 ----
-```
-```
+![teste image 3](.\img\visao-de-software\Mercado_Privado.png)
+
 ## Outros requisitos do produto
 ----
 ```
+  Parar fazer uso do produto é necessário o sistema operacional windows sem necessidade de internet. Além da possibilidade de rodar apenas o código no site do [repl.it](https://repl.it/languages/csharp)
 ```
 ## Requisitos da documentação
 ----
@@ -48,6 +51,6 @@
   - Suporte
     * Guia geral do sistema
     * Guia do usuário
-  
+
 ```
 
