@@ -35,6 +35,50 @@
 ----
 ![teste image 3](.\img\visao-de-software\Mercado_Privado.png)
 
+- UC01 Realizar Cadastro
+  * Descricao sobre Realizar Cadastro
+
+- UC02 Realizar Login
+  * Descricao sobre Realizar Login
+
+- UC03 Buscar Produto
+  * Descricao sobre Buscar Produto
+
+- UC04 Acessar Área do Vendedor
+  * Descricao sobre Acessar Área do Vendedor
+
+- UC05 Remover Anúncio
+  * Descricao sobre Remover Anúncio
+
+- UC06 Adicionar Administrador
+  * Descricao sobre Adicionar Administrador
+
+- UC07 Anunciar Produto
+  * Descricao sobre Anunciar Produto
+
+- UC08 Gerenciar Área do Vendedor
+  * Descricao sobre Gerenciar Área do Vendedor
+
+- UC09 Enviar Produto
+  * Descricao sobre Enviar Produto
+
+- UC10 Comentar Produto
+  * Descricao sobre Comentar Produto
+
+- UC11 Denunciar Produto
+  * Descricao sobre Denunciar Produto
+
+- UC12 Comprar Produto
+  * Descricao sobre Comprar Produto
+
+- UC13 Finalizar Produto
+  * Descricao sobre Finalizar Produto
+
+- UC14 Avaliar Produto
+  * Descricao sobre Avaliar Produto
+
+
+
 ## Outros requisitos do produto
 ----
 ```
