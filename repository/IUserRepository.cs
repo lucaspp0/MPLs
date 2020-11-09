@@ -1,4 +1,8 @@
-interface IUserRepository
+namespace MPL.repository
 {
-    
+  interface IUserRepository
+  {
+      
+  }
+
 }

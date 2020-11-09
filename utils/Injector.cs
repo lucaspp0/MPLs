@@ -1,4 +1,7 @@
-class Injector
+namespace MPL.utils
 {
-    
+  public class Injector
+  {
+      
+  }
 }
