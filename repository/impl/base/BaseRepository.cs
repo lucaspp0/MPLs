@@ -66,7 +66,7 @@ namespace MPL.repository.impl
 
     private static void InitializeBd(){
       _DATABASE = new DataBaseGod();
-      _DATABASE.Usuario = new List<Usuario>();
+      _DATABASE.UsuarioConsumidor = new List<UsuarioConsumidor>();
     }
 
   }

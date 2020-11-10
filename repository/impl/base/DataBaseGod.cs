@@ -5,10 +5,10 @@ namespace MPL.repository.impl
 {
   class DataBaseGod
   {
-    List<Usuario> usuario = new List<Usuario>();
-    public List<Usuario> Usuario { 
-      get { return usuario; } 
-      set { usuario = value; } 
+    List<UsuarioConsumidor> usuarioConsumidor = new List<UsuarioConsumidor>();
+    public List<UsuarioConsumidor> UsuarioConsumidor { 
+      get { return usuarioConsumidor; } 
+      set { usuarioConsumidor = value; } 
     }
     
   }
