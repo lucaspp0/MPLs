@@ -23,5 +23,9 @@ namespace MPL.model
           set { finalizado = value; }
       }
       
+      public Venda(string status,string endereco){
+          this.status = status;
+          this.endereco = endereco;
+      }
   }
 }

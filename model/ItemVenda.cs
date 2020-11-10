@@ -22,5 +22,10 @@ namespace MPL.model
           set { quantidade = value; }
       }
       
+      public ItemVenda(float frete, string status, int quantidade){
+          this.frete = frete;
+          this.status = status;
+          this.quantidade = quantidade;
+      }
   }
 }

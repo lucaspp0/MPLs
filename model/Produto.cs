@@ -20,5 +20,10 @@ namespace MPL.model
           get { return categoria; }
           set { categoria = value; }
       }
+      public Produto(float peso, float valor, string categoria){
+          this.peso = peso;
+          this.valor = valor;
+          this.categoria = categoria;
+      }
   }
 }

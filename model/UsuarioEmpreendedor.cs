@@ -16,6 +16,8 @@ namespace MPL.model
           get { return tempo_cadastro; }
           set { tempo_cadastro = value; }
       }
-      
+      public UsuarioEmpreendedor(int cnpj,string nome, string login, string senha):base(nome,login,senha){
+        this.cnpj = cnpj;
+      }
   }
 }

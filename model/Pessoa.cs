@@ -26,6 +26,10 @@ namespace MPL.model
           set { senha = value; }
       }
       
-
+      public Pessoa(string nome,string login,string senha){
+        this.nome = nome;
+        this.login = login;
+        this.senha = senha;
+      }
   }
 }
