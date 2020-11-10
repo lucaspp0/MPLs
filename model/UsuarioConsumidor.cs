@@ -1,5 +1,3 @@
-using System;
-using System.Collections.Generic;
 namespace MPL.model
 {
   class UsuarioConsumidor : Pessoa
@@ -10,6 +8,8 @@ namespace MPL.model
           get { return cpf; }
           set { cpf = value; }
       }
+      
+
       
       public UsuarioConsumidor(int cpf,string nome, string login, string senha):base(nome,login,senha){
         this.cpf = cpf;
