@@ -17,9 +17,7 @@ namespace MPL.model
           set { vendas = value; }
       }
       
-      
-
-      
+    
       public UsuarioConsumidor(int cpf,string nome, string login, string senha):base(nome,login,senha){
         this.cpf = cpf;
       }
