@@ -7,7 +7,7 @@ using MPL.utils;
 
 namespace MPL.repository.impl
 {
-  public class BaseRepository : IBasicRepository<ABaseModel>
+  public class BaseRepository : IBaseRepository<ABaseModel>
   {
     static DataBaseGod _DATABASE;
     List<ABaseModel> _ListObj;
@@ -15,8 +15,8 @@ namespace MPL.repository.impl
     public BaseRepository(List<ABaseModel> ListObj ) => this._ListObj = ListObj;
 
     public async Task<bool> save(ABaseModel obj){
-      int index = _ListObj.FindIndex(x => x.Id == obj.Id);
-      
+      int index = _ListObj.FindIndex(modelo => modelo.Id == obj.Id);
+
       if(index > -1) {
         _ListObj[index] = obj;
       }
@@ -44,7 +44,6 @@ namespace MPL.repository.impl
       await FillFileByBd();
       return _ListObj;
     }
-
 
     public static async void FillBd(){
       bool filledByFile = await FillBdByFile();

@@ -1,4 +1,5 @@
 ﻿using System;
+using MPL.View;
 using static MPL.utils.ViewUtils;
 
 namespace MPL
@@ -7,11 +8,7 @@ namespace MPL
     {
         static void Main(string[] args)
         {
-            string kk = GetInput("Digite algo por favor: ");
-            ShowScreen(kk);
-            GetWaitingInput();
-            ClearConsole();
-            ShowScreen("final");
+            new MainViewManager(new MainScreen()).Start();
         }
     }
 }

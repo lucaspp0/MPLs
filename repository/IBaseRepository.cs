@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 
 namespace MPL.repository.impl
 {
-  public interface IBasicRepository<T>
+  public interface IBaseRepository<T>
   {
     public Task<bool> save(T obj);
     public Task<bool> delete(T obj);
