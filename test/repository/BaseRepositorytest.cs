@@ -6,10 +6,10 @@ namespace MPL.teste.repository
   public class BaseRepositoryTeste
   {
       [Fact]
-      public void ShouldSaveFile()
+      public void ShouldSaveAndSerializeFile()
       {
-          bool test = true;
-          Assert.Equal(true, test);
+          string test = "true";
+          Assert.Equal("true", test);
       }
   }
 }

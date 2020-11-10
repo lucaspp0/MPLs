@@ -1,4 +1,5 @@
 ﻿using System;
+using static MPL.utils.ViewUtils;
 
 namespace MPL
 {
@@ -6,7 +7,11 @@ namespace MPL
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            string kk = GetInput("Digite algo por favor: ");
+            ShowScreen(kk);
+            GetWaitingInput();
+            ClearConsole();
+            ShowScreen("final");
         }
     }
 }

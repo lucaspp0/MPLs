@@ -1,4 +1,4 @@
-public abstract class IBaseModel
+public abstract class ABaseModel
 {
     public int Id { get; set; }
 }

@@ -3,17 +3,18 @@ using MPL.View.interfaces;
 
 namespace MPL.View
 {
-    class MainViewManager
+    public class MainViewManager
     {
-
+      
       public static bool runningProgram = false;
       private static IScreen currentScreen;
+      
 
       public MainViewManager(IScreen currentScreen){
-        this.changeScreen(currentScreen);
+        ChangeScreen(currentScreen);
       }
 
-      public void changeScreen(IScreen currentScreen){
+      public static void ChangeScreen(IScreen currentScreen){
         MainViewManager.currentScreen = currentScreen;
       }
 

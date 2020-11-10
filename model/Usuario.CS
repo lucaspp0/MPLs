@@ -1,7 +1,7 @@
 
 namespace MPL.model
 {
-  class Usuario : IBaseModel
+  class Usuario : ABaseModel
   {
       
   }
