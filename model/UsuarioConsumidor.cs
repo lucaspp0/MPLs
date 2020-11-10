@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 namespace MPL.model
 {
   class UsuarioConsumidor : Pessoa
@@ -8,6 +9,14 @@ namespace MPL.model
           get { return cpf; }
           set { cpf = value; }
       }
+
+      private List<Venda> vendas;
+      public List<Venda> Vendas
+      {
+          get { return vendas; }
+          set { vendas = value; }
+      }
+      
       
 
       

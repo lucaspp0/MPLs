@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 namespace MPL.model
 {
   class Venda : ABaseModel
@@ -22,6 +23,14 @@ namespace MPL.model
           get { return finalizado; }
           set { finalizado = value; }
       }
+
+      private List<ItemVenda> itemVendas;
+      public List<ItemVenda> ItemVendas
+      {
+          get { return itemVendas; }
+          set { itemVendas = value; }
+      }
+      
       
       public Venda(string status,string endereco){
           this.status = status;
