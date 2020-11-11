@@ -1,6 +1,6 @@
 namespace MPL.model
 {
-  class UsuarioConsumidor : Pessoa
+  public class UsuarioConsumidor : Pessoa
   {
       private int cpf;
       public int Cpf

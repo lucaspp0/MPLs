@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace MPL.repository.impl
+namespace MPL.repository
 {
   public interface IBaseRepository<T>
   {

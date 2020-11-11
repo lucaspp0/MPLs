@@ -1,5 +1,5 @@
 using System;
-
+using System.Threading.Tasks;
 using MPL.View;
 using MPL.View.interfaces;
 using static MPL.utils.ViewUtils;
@@ -13,7 +13,7 @@ public class MainScreen : IScreen
       2 - Cadastro
 Selecione uma ação: ";
   }
-  public void Show()
+  public async Task Show()
   {
     string choice = GetInput(BuilMaindMenu());
     if(choice == "1")

@@ -3,7 +3,7 @@ using MPL.model;
 
 namespace MPL.repository.impl
 {
-  class DataBaseGod
+  public class DataBaseGod
   {
     List<UsuarioConsumidor> usuarioConsumidor = new List<UsuarioConsumidor>();
     public List<UsuarioConsumidor> UsuarioConsumidor { 

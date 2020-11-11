@@ -1,6 +1,8 @@
+using MPL.model;
+
 namespace MPL.repository
 {
-  interface IUserRepository
+  public interface IUserRepository : IBaseRepository<UsuarioConsumidor>
   {
       
   }

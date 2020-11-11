@@ -1,5 +1,6 @@
 using System;
 using MPL.View.interfaces;
+using MPL.model;
 
 namespace MPL.View
 {
@@ -8,6 +9,7 @@ namespace MPL.View
       
       public static bool runningProgram = false;
       private static IScreen currentScreen;
+      public static Pessoa CurrentUser;
       
 
       public MainViewManager(IScreen currentScreen){

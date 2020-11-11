@@ -1,10 +1,9 @@
 namespace MPL.model
 
-
 {
-  abstract class Pessoa : ABaseModel
+  public abstract class Pessoa : ABaseModel
   {
-    //Declaração de métodos get/set
+      //Declaração de métodos get/set
       protected string nome;
       public string Nome
       {

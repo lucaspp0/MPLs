@@ -1,7 +1,7 @@
 using System;
 namespace MPL.model
 {
-  class UsuarioEmpreendedor : Pessoa
+  public class UsuarioEmpreendedor : Pessoa
   {
       private int cnpj;
       public int Cnpj
