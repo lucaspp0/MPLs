@@ -12,7 +12,7 @@ namespace MPL.utils
         if(!File.Exists(path))
           File.Create(path);
 
-        await File.WriteAllTextAsync(path, content);
+        File.WriteAllText(path, content);
         return true;
       }
       catch (Exception){ return false; }
