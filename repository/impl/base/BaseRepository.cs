@@ -24,7 +24,8 @@ namespace MPL.repository.impl
         _ListObj[index] = obj;
       }
       else{
-        int nextId = _ListObj.Max( x => getIdFromObj(x)) + 1;
+        int nextId = 1;
+        if(_ListObj.Count != 0) nextId = _ListObj.Max( x => getIdFromObj(x)) + 1;
         setIdFromObj(obj, nextId);
         _ListObj.Add(obj);
       }
