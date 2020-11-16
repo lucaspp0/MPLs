@@ -1,4 +1,5 @@
-using System.Linq;
+
+using System;
 
 using MPL.model;
 using MPL.repository;
@@ -17,8 +18,11 @@ namespace MPL.utils
       public static LoginController LoginController;
 
       public static void initialize(){
-        IUserRepository = new UserRepositoryImpl(BaseRepository<UsuarioConsumidor>._DATABASE.UsuarioConsumidor);
+        Console.WriteLine("antes initi");
+        IUserRepository = new UserRepositoryImpl(DataBaseGod._DATABASE.UsuarioConsumidor);
+        Console.WriteLine("meio initi");
         LoginController = new LoginController(IUserRepository);
+        Console.WriteLine("final initi");
       }
       
   }

@@ -19,13 +19,13 @@ namespace MPL
         public async static Task InitializeComponentes(){
             await BaseRepository<object>.FillBd();
             Injector.initialize();
+            Console.WriteLine("final InitializeComponentes");
             // new MainViewManager(new MainScreen()).Start();
         }
 
         public static IUserRepository _IUserRepository;
 
         public async static Task init() {
-            Console.WriteLine("grau");
             await Program.InitializeComponentes(); 
             _IUserRepository = Injector.IUserRepository;
 
@@ -35,7 +35,6 @@ namespace MPL
             user.Nome = "123";
             user.Senha = "123";
             bool result = await _IUserRepository.save(user);
-            Console.WriteLine("grau");
 
             // Assert.True(result);
             /*
@@ -47,7 +46,10 @@ namespace MPL
         static void Main(string[] args)
         {
             // InitializeComponentes();
-            init();
+            
+            Task mainTask = init();
+            while(!mainTask.IsCompleted) { }
+            Console.WriteLine("Final geral");
         }
     }
 }

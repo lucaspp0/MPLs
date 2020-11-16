@@ -12,7 +12,6 @@ namespace MPL.repository.impl
 {
   public class BaseRepository<T> : IBaseRepository<T>
   {
-    public static DataBaseGod _DATABASE;
     List<T> _ListObj;
 
     private const string ID_STR = "Id";
@@ -21,7 +20,6 @@ namespace MPL.repository.impl
 
     public async Task<bool> save(T obj){
       int index = _ListObj.FindIndex(modelo => getIdFromObj(modelo) == getIdFromObj(obj));
-
       if(index > -1) {
         _ListObj[index] = obj;
       }
@@ -57,22 +55,24 @@ namespace MPL.repository.impl
     }
 
     private static async Task<bool> FillFileByBd(){
-      if(_DATABASE == null) await FillBd();
-      string content = await JsonUtil<DataBaseGod>.Serialize(_DATABASE);
-      
+      Console.WriteLine("inicio FillBd: ");
+      if(DataBaseGod._DATABASE == null) await FillBd();
+      Console.WriteLine("fillbd");
+      string content = await JsonUtil<DataBaseGod>.Serialize(DataBaseGod._DATABASE);
+      Console.WriteLine("Conteudo: "+content);
       return await Fileutils.WriteFile(content, Constants.Path_BD);
     }
 
     private static async Task<bool> FillBdByFile(){
       string content = await Fileutils.ReadFile(Constants.Path_BD);
       if(string.IsNullOrWhiteSpace(content)) return false;
-      _DATABASE = JsonUtil<DataBaseGod>.Deserialize(content);
+      DataBaseGod._DATABASE = JsonUtil<DataBaseGod>.Deserialize(content);
       return true;
     }
 
     private static void InitializeBd(){
-      _DATABASE = new DataBaseGod();
-      _DATABASE.UsuarioConsumidor = new List<UsuarioConsumidor>();
+      DataBaseGod._DATABASE = new DataBaseGod();
+      DataBaseGod._DATABASE.UsuarioConsumidor = new List<UsuarioConsumidor>();
     }
 
     private void setIdFromObj(T obj, int id){
