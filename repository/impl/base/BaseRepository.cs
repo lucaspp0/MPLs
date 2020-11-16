@@ -49,11 +49,6 @@ namespace MPL.repository.impl
       return _ListObj;
     }
 
-    public static async Task FillBd(){
-      bool filledByFile = await FillBdByFile();
-      if(!filledByFile) InitializeBd();
-    }
-
     private static async Task<bool> FillFileByBd(){
       Console.WriteLine("inicio FillBd: ");
       if(DataBaseGod._DATABASE == null) await FillBd();
@@ -70,10 +65,7 @@ namespace MPL.repository.impl
       return true;
     }
 
-    private static void InitializeBd(){
-      DataBaseGod._DATABASE = new DataBaseGod();
-      DataBaseGod._DATABASE.UsuarioConsumidor = new List<UsuarioConsumidor>();
-    }
+
 
     private void setIdFromObj(T obj, int id){
         Type TypeObj = typeof(T);
