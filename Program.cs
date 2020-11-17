@@ -38,8 +38,12 @@ namespace MPL
 
         static void Main(string[] args)
         {
+<<<<<<< HEAD
+            //InitializeComponentes();
+=======
             ClearConsole();
             Console.WriteLine("Inicio de tudo");
+>>>>>>> 04cf334cc2e679643f8ebca609261923cd754ecb
             Task mainTask = init();
 
             while(!mainTask.IsCompleted) { }
