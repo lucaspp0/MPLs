@@ -1,6 +1,6 @@
 namespace MPL.model
 {
-  class ContaTransportador : ABaseModel
+  public class ContaTransportador : ABaseModel
   {
       private int quantidade;
       public int Quantidade

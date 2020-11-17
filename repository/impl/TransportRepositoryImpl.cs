@@ -3,10 +3,10 @@ using MPL.model;
 
 namespace MPL.repository.impl
 {
-  public class TransportRepositoryImpl : BaseRepository<TransportadorPrivada>, IUserRepository
+  public class TransportRepositoryImpl : BaseRepository<TransportadorPrivada>
   {
-      public UserRepositoryImpl(List<TransportadorPrivada> ListObj) : base(ListObj){
-        
+      public TransportRepositoryImpl(List<TransportadorPrivada> ListObj) : base(ListObj){
+      
       }
 
   }

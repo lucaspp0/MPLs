@@ -3,10 +3,11 @@ using MPL.model;
 
 namespace MPL.repository.impl
 {
-  public class EmpreenderRepositoryImpl : BaseRepository<UsuarioEmpreendedor>, IUserRepository
+  public class EmpreenderRepositoryImpl : BaseRepository<UsuarioEmpreendedor> 
   {
-      public UserRepositoryImpl(List<UsuarioEmpreendedor> ListObj) : base(ListObj){
+      public EmpreenderRepositoryImpl(List<UsuarioEmpreendedor> ListObj) : base(ListObj){
         
+      
       }
 
   }

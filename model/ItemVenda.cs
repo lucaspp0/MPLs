@@ -1,6 +1,6 @@
 namespace MPL.model
 {
-  class ItemVenda : ABaseModel
+  public class ItemVenda : ABaseModel
   {
       private float frete;
       public float Frete
