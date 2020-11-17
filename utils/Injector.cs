@@ -18,7 +18,8 @@ namespace MPL.utils
       public static EmpreenderRepositoryImpl EmpreenderRepositoryImpl;
 
       // Controllers
-      public static LoginController LoginController;
+      //public static LoginController LoginController;
+      public static ClientController ClientController;
 
       public static void initialize(){
         Console.WriteLine("antes initi");
@@ -28,8 +29,9 @@ namespace MPL.utils
         Console.WriteLine("meio initi 2");
         EmpreenderRepositoryImpl = new EmpreenderRepositoryImpl(DataBaseGod._DATABASE.UsuarioEmpreender);
         Console.WriteLine("meio initi 2");
-        LoginController = new LoginController(IUserRepository);
+        ClientController = new ClientController(IUserRepository,TransportRepositoryImpl ,EmpreenderRepositoryImpl);
         Console.WriteLine("final initi");
+        
       }
       
   }

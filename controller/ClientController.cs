@@ -23,6 +23,8 @@ namespace MPL.controller
       }
     
       public async Task<bool> Login(string login, string senha){
+          Console.WriteLine("projeto feito");
+
         List<UsuarioConsumidor> usuarioConsumidorList = (await _IUserRepository.selectAll());
         List<UsuarioEmpreendedor> usuarioEmpreendedorList = (await _IUserEmpreendedorRepository.selectAll());
         
