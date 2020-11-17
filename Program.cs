@@ -2,6 +2,7 @@
 using System;
 
 using MPL.utils;
+using static MPL.utils.ViewUtils;
 using MPL.model;
 using MPL.repository;
 using MPL.View.Transportador;
@@ -37,6 +38,7 @@ namespace MPL
 
         static void Main(string[] args)
         {
+            ClearConsole();
             Console.WriteLine("Inicio de tudo");
             Task mainTask = init();
 

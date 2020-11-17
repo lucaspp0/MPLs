@@ -3,6 +3,7 @@ using System;
 using static MPL.utils.ViewUtils;
 using MPL.View.interfaces;
 using System.Threading.Tasks;
+using MPL.View.Empreendedor.Vendas;
 
 namespace MPL.View.Empreendedor
 {
@@ -20,13 +21,13 @@ namespace MPL.View.Empreendedor
 Digite a opção: ");
 
       if(result == "1"){
-        
+        new VisualizarVendasScreen().Show();
       }else if(result == "2"){
-        
+        new VisualizarProdutoscreen().Show();
       }else if(result == "3"){
-        
+        new CadastrarProdutosScreen().Show();
       }else if(result == "4"){
-        
+        new DeletarProdutosScreen().Show();
       }else{
         ShowScreen("Escolha inválida");
         GetWaitingInput();

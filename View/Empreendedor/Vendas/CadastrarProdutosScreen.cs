@@ -4,11 +4,11 @@ using static MPL.utils.ViewUtils;
 using MPL.View.interfaces;
 using System.Threading.Tasks;
 
-namespace MPL.View.Empreendedor
+namespace MPL.View.Empreendedor.Vendas
 {
-  class CadastrarProdutosScreen : IScreen
+  public class CadastrarProdutosScreen : IScreen
   {
-      public Task Show(){
+      public async Task Show(){
         ShowScreen("Cadastrar produtos");
       }
   }
