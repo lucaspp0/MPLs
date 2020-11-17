@@ -22,10 +22,10 @@ namespace MPL.repository.impl
       set { usuarioConsumidor = value; } 
     }
 
-    private List<TransportadorPrivada> transportadorPrivada = new List<TransportadorPrivada>();
-    public List<TransportadorPrivada> TransportadorPrivada { 
-      get { return transportadorPrivada; } 
-      set { transportadorPrivada = value; } 
+    private List<ContaTransportador> contaTransportador = new List<ContaTransportador>();
+    public List<ContaTransportador> ContaTransportador { 
+      get { return contaTransportador; } 
+      set { contaTransportador = value; } 
     }
 
     private List<UsuarioEmpreendedor> usuarioEmpreender = new List<UsuarioEmpreendedor>();

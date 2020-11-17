@@ -25,7 +25,7 @@ namespace MPL.utils
         Console.WriteLine("antes initi");
         IUserRepository = new UserRepositoryImpl(DataBaseGod._DATABASE.UsuarioConsumidor);
         Console.WriteLine("meio initi");
-        TransportRepositoryImpl = new TransportRepositoryImpl(DataBaseGod._DATABASE.TransportadorPrivada);
+        TransportRepositoryImpl = new TransportRepositoryImpl(DataBaseGod._DATABASE.ContaTransportador);
         Console.WriteLine("meio initi 2");
         EmpreenderRepositoryImpl = new EmpreenderRepositoryImpl(DataBaseGod._DATABASE.UsuarioEmpreender);
         Console.WriteLine("meio initi 2");

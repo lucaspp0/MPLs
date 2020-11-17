@@ -45,9 +45,9 @@ namespace MPL
 
         static void Main(string[] args)
         {
-            // InitializeComponentes();
-            
+            InitializeComponentes();
             Task mainTask = init();
+
             while(!mainTask.IsCompleted) { }
             Console.WriteLine("Final geral");
         }

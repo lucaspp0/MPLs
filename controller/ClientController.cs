@@ -64,5 +64,13 @@ namespace MPL.controller
             }
             return false;
         }
+        public bool Loggof(){
+          if (MainViewManager.CurrentUser != null){
+            MainViewManager.CurrentUser = null;
+            return true;
+          }
+          return false;
+        }
+
     }
 }
