@@ -18,12 +18,15 @@ namespace MPL.controller
 
         }
 
-        public async Task Login(string login, string senha)
+        public async Task SelecionarProduto(int idProduto)
         {
 
             List<UsuarioConsumidor> usuarioConsumidorList = (await _IUserRepository.selectAll());
+
+            
         
         }
+        
      
 
 

@@ -1,13 +1,11 @@
 ﻿using System.Threading.Tasks;
-
-using MPL.View;
-using MPL.utils;
-using MPL.repository.impl;
-
 using System;
 
+using MPL.utils;
+using static MPL.utils.ViewUtils;
 using MPL.model;
 using MPL.repository;
+using MPL.View.Transportador;
 
 namespace MPL
 {
@@ -24,6 +22,9 @@ namespace MPL
         public static IUserRepository _IUserRepository;
 
         public async static Task init() {
+            
+            await new MenuTransportadorScreen().Show();
+
             await Program.InitializeComponentes(); 
             _IUserRepository = Injector.IUserRepository;
 
@@ -33,17 +34,16 @@ namespace MPL
             user.Nome = "123";
             user.Senha = "123";
             bool result = await _IUserRepository.save(user);
-
-            // Assert.True(result);
-            /*
-            await Program.InitializeComponentes(); 
-            _IUserRepository = Injector.IUserRepository;
-            */
         }
 
         static void Main(string[] args)
         {
+<<<<<<< HEAD
             //InitializeComponentes();
+=======
+            ClearConsole();
+            Console.WriteLine("Inicio de tudo");
+>>>>>>> 04cf334cc2e679643f8ebca609261923cd754ecb
             Task mainTask = init();
 
             while(!mainTask.IsCompleted) { }
