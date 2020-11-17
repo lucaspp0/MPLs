@@ -51,9 +51,11 @@ namespace MPL.repository.impl
     }
 
     private static async Task<bool> FillFileByBd(){
+      /*
       Console.WriteLine("inicio FillBd: ");
       if(DataBaseGod._DATABASE == null) await FillBd();
       Console.WriteLine("fillbd");
+      */
       string content = await JsonUtil<DataBaseGod>.Serialize(DataBaseGod._DATABASE);
       Console.WriteLine("Conteudo: "+content);
       return await Fileutils.WriteFile(content, Constants.Path_BD);

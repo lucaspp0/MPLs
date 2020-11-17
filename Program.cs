@@ -17,7 +17,7 @@ namespace MPL
     {
         
         public async static Task InitializeComponentes(){
-            await BaseRepository<object>.FillBd();
+            //await BaseRepository<object>.FillBd();
             Injector.initialize();
             Console.WriteLine("final InitializeComponentes");
             // new MainViewManager(new MainScreen()).Start();
