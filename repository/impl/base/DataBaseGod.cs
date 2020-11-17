@@ -24,14 +24,14 @@ namespace MPL.repository.impl
 
     private List<TransportadorPrivada> transportadorPrivada = new List<TransportadorPrivada>();
     public List<TransportadorPrivada> TransportadorPrivada { 
-      get { return TransportadorPrivada; } 
-      set { TransportadorPrivada = value; } 
+      get { return transportadorPrivada; } 
+      set { transportadorPrivada = value; } 
     }
 
     private List<UsuarioEmpreendedor> usuarioEmpreender = new List<UsuarioEmpreendedor>();
     public List<UsuarioEmpreendedor> UsuarioEmpreender { 
-      get { return UsuarioEmpreender; } 
-      set { UsuarioEmpreender = value; } 
+      get { return usuarioEmpreender; } 
+      set { usuarioEmpreender = value; } 
     }
 
   }

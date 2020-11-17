@@ -27,7 +27,7 @@ namespace MPL.utils
         TransportRepositoryImpl = new TransportRepositoryImpl(DataBaseGod._DATABASE.TransportadorPrivada);
         Console.WriteLine("meio initi 2");
         EmpreenderRepositoryImpl = new EmpreenderRepositoryImpl(DataBaseGod._DATABASE.UsuarioEmpreender);
-        Console.WriteLine("meio initi 3");
+        Console.WriteLine("meio initi 2");
         LoginController = new LoginController(IUserRepository);
         Console.WriteLine("final initi");
       }
