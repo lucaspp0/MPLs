@@ -2,7 +2,7 @@ using MPL.model;
 
 namespace MPL.repository
 {
-  public interface ITransportadorRepository : IBaseRepository<TransportadorPrivada>
+  public interface ITransportadorRepository : IBaseRepository<ContaTransportador>
   {
       
   }
