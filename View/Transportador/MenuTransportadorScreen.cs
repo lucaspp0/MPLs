@@ -4,13 +4,13 @@ using static MPL.utils.ViewUtils;
 using MPL.View.interfaces;
 using System.Threading.Tasks;
 
-namespace MPL.View
+namespace MPL.View.Transportador
 {
-  public class RegisterScreen : IScreen
+  public class MenuTransportadorScreen : IScreen
   {
     public async Task Show()
     {
-      ShowScreen("RegisterScreen");
+      ShowScreen("MenuTransportadorScreen");
     }
   }
 }
