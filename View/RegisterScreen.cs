@@ -10,7 +10,12 @@ namespace MPL.View
   {
     public async Task Show()
     {
-      ShowScreen("RegisterScreen");
+      string tipo = GetInput($@"Tipos de usuários
+      1 - Usuário Empreendedor
+      2 - Usuário Consumidor
+Escolha o tipo de usuário: ");
+
+      ShowScreen($"tipo de usuario {tipo}");
     }
   }
 }

@@ -6,7 +6,9 @@ using MPL.View.interfaces;
 using MPL.View;
 using MPL.utils;
 using MPL.model;
-
+using MPL.View.Consumidor;
+using MPL.View.Empreendedor;
+using MPL.View.Transportador;
 
 public class LoginScreen : IScreen
 {
@@ -19,11 +21,11 @@ public class LoginScreen : IScreen
     bool loginSucess = await Injector.ClientController.Login(login, senha);
     if(loginSucess){
       if(MainViewManager.CurrentUser is UsuarioConsumidor){
-        
+        MainViewManager.ChangeScreen(new MenuConsumidorScreen());
       }else if(MainViewManager.CurrentUser is UsuarioEmpreendedor){
-
+        MainViewManager.ChangeScreen(new MenuEmpreendedorScreen());
       }else if(MainViewManager.CurrentUser is ContaTransportador){
-
+        MainViewManager.ChangeScreen(new MenuTransportadorScreen());
       }else{
         ShowScreen("Tipo de usuário não encontrado");
         GetWaitingInput();
