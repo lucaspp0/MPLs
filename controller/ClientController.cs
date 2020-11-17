@@ -24,11 +24,9 @@ namespace MPL.controller
 
         public async Task<bool> Login(string login, string senha)
         {
-
             List<UsuarioConsumidor> usuarioConsumidorList = (await _IUserRepository.selectAll());
             List<UsuarioEmpreendedor> usuarioEmpreendedorList = (await _IUserEmpreendedorRepository.selectAll());
             List<ContaTransportador> usuarioTransportadorList = (await _ITransportadorRepository.selectAll());
-
 
             foreach (var usuarioConsumidor in usuarioConsumidorList)
             {

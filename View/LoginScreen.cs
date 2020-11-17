@@ -5,6 +5,7 @@ using static MPL.utils.ViewUtils;
 using MPL.View.interfaces;
 using MPL.View;
 using MPL.utils;
+using MPL.model;
 
 
 public class LoginScreen : IScreen
@@ -16,10 +17,21 @@ public class LoginScreen : IScreen
     string senha = GetInput("insira a sua senha: ");
 
     bool loginSucess = await Injector.ClientController.Login(login, senha);
-    /*
-    if(loginSucess) MainViewManager.ChangeScreen(new UserScreen());
-    else ShowScreen("Login inválido");
-    */
+    if(loginSucess){
+      if(MainViewManager.CurrentUser is UsuarioConsumidor){
+        
+      }else if(MainViewManager.CurrentUser is UsuarioEmpreendedor){
+
+      }else if(MainViewManager.CurrentUser is ContaTransportador){
+
+      }else{
+        ShowScreen("Tipo de usuário não encontrado");
+        GetWaitingInput();
+      }
+    }else{
+      ShowScreen("Login incorreto");
+      GetWaitingInput();
+    }
     
   }
 }

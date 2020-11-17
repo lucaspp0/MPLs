@@ -10,7 +10,22 @@ namespace MPL.View.Transportador
   {
     public async Task Show()
     {
-      ShowScreen("MenuTransportadorScreen");
+      string result = GetInput($@"
+      1 - Alterar Status Venda
+      2 - Logof
+
+Digite a opção: ");
+
+      if(result == "1"){
+        MainViewManager.ChangeScreen(new ListagemVendasScreen());
+      }else if(result == "2"){
+        MainViewManager.CurrentUser = null;
+        MainViewManager.ChangeScreen(new LoginScreen());
+      }else{
+        ShowScreen("Escolha inválida");
+        GetWaitingInput();
+      }
+      
     }
   }
 }
