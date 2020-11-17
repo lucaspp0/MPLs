@@ -1,6 +1,8 @@
 using System;
+
 using MPL.View.interfaces;
 using MPL.model;
+using static MPL.utils.ViewUtils;
 
 namespace MPL.View
 {
@@ -28,6 +30,7 @@ namespace MPL.View
       private void Run(){
         while(runningProgram && currentScreen != null){
           currentScreen.Show();
+          ClearConsole();
         }
       }
 
