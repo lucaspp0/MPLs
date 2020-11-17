@@ -13,8 +13,7 @@ namespace MPL.View.Transportador
       string result = GetInput($@"
       1 - Alterar Status Venda
       2 - Logof
-
-Digite a opção: ");
+  Digite a opção: ");
 
       if(result == "1"){
         MainViewManager.ChangeScreen(new ListagemVendasScreen());
