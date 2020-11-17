@@ -5,11 +5,9 @@ using MPL.utils;
 using MPL.repository.impl;
 
 using System;
-using System.Threading.Tasks;
 
 using MPL.model;
 using MPL.repository;
-using MPL.utils;
 
 namespace MPL
 {
@@ -45,7 +43,7 @@ namespace MPL
 
         static void Main(string[] args)
         {
-            InitializeComponentes();
+            //InitializeComponentes();
             Task mainTask = init();
 
             while(!mainTask.IsCompleted) { }

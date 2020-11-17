@@ -58,7 +58,7 @@ namespace MPL.repository.impl
       */
       string content = await JsonUtil<DataBaseGod>.Serialize(DataBaseGod._DATABASE);
       Console.WriteLine("Conteudo: "+content);
-      return await Fileutils.WriteFile(content, Constants.Path_BD);
+      return Fileutils.WriteFile(content, Constants.Path_BD);
     }
 
     private static async Task<bool> FillBdByFile(){

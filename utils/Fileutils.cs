@@ -6,7 +6,7 @@ namespace MPL.utils
 {
   public class Fileutils{
 
-    public static async Task<bool> WriteFile(string content, string path){
+    public static bool WriteFile(string content, string path){
       try
       {
         if(!File.Exists(path))
