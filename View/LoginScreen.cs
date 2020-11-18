@@ -15,25 +15,33 @@ public class LoginScreen : IScreen
     public async Task Show()
   {
 
-    string login = GetInput("insira seu login: ");
-    string senha = GetInput("insira a sua senha: ");
+    
+    string validateLogin = GetInput("Digite 1 para voltar ao cadastro: ");
+    if(validateLogin != "1"){
 
-    bool loginSucess = await Injector.ClientController.Login(login, senha);
-    if(loginSucess){
-      if(MainViewManager.CurrentUser is UsuarioConsumidor){
-        MainViewManager.ChangeScreen(new MenuConsumidorScreen());
-      }else if(MainViewManager.CurrentUser is UsuarioEmpreendedor){
-        MainViewManager.ChangeScreen(new MenuEmpreendedorScreen());
-      }else if(MainViewManager.CurrentUser is ContaTransportador){
-        MainViewManager.ChangeScreen(new MenuTransportadorScreen());
+      string login = GetInput("insira seu login: ");
+      string senha = GetInput("insira a sua senha: ");
+
+
+      bool loginSucess = await Injector.ClientController.Login(login, senha);
+      if(loginSucess){
+        if(MainViewManager.CurrentUser is UsuarioConsumidor){
+          MainViewManager.ChangeScreen(new MenuConsumidorScreen());
+        }else if(MainViewManager.CurrentUser is UsuarioEmpreendedor){
+          MainViewManager.ChangeScreen(new MenuEmpreendedorScreen());
+        }else if(MainViewManager.CurrentUser is ContaTransportador){
+          MainViewManager.ChangeScreen(new MenuTransportadorScreen());
+        }else{
+          ShowScreen("Tipo de usuário não encontrado");
+          GetWaitingInput();
+        }
       }else{
-        ShowScreen("Tipo de usuário não encontrado");
+        ShowScreen("Login incorreto");
         GetWaitingInput();
       }
+        
     }else{
-      ShowScreen("Login incorreto");
-      GetWaitingInput();
+        MainViewManager.ChangeScreen(new RegisterScreen());
     }
-    
   }
 }
