@@ -30,16 +30,16 @@ namespace MPL.controller
         .FirstOrDefault();
     }
 
-    public async Task<bool> Login(string login, string senha)
+    public  bool Login(string login, string senha)
     {
       Pessoa usuarioConsumidor =
-        FilterUser((await _IUserRepository.selectAll()).Select(x => (Pessoa)x).ToList(), senha, login);
+        FilterUser((_IUserRepository.selectAll()).Select(x => (Pessoa)x).ToList(), senha, login);
 
       Pessoa usuarioEmpreendedor =
-        FilterUser((await _IUserEmpreendedorRepository.selectAll()).Select(x => (Pessoa)x).ToList(), senha, login);
+        FilterUser((_IUserEmpreendedorRepository.selectAll()).Select(x => (Pessoa)x).ToList(), senha, login);
 
       Pessoa usuarioTransportador =
-        FilterUser((await _ITransportadorRepository.selectAll()).Select(x => (Pessoa)x).ToList(), senha, login);
+        FilterUser((_ITransportadorRepository.selectAll()).Select(x => (Pessoa)x).ToList(), senha, login);
 
       List<Pessoa> listaPessoas = new List<Pessoa>() { usuarioConsumidor, usuarioEmpreendedor, usuarioTransportador };
 

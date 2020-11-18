@@ -8,7 +8,7 @@ namespace MPL.View.Transportador
 {
   public class ListagemVendasScreen : IScreen
   {
-    public async Task Show()
+    public  void Show()
     {
       ShowScreen("Mostrar Lista de venda");
     }

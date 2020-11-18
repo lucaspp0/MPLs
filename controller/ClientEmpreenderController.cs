@@ -19,22 +19,22 @@ namespace MPL.controller
 
         }
 
-        public async Task SelecionarProduto(int idProduto)
+        public void SelecionarProduto(int idProduto)
         {
 
-            List<UsuarioEmpreendedor> usuarioEmpreenderList = (await _IUserEmpreendedorRepository.selectAll());
+            List<UsuarioEmpreendedor> usuarioEmpreenderList = (_IUserEmpreendedorRepository.selectAll());
 
         
         }
 
-        public async Task<bool> RegisterClienteEmpreende(string nome,string login,string senha,string cnpj){
+        public  bool RegisterClienteEmpreende(string nome,string login,string senha,string cnpj){
            UsuarioEmpreendedor user = new UsuarioEmpreendedor();
            user.Cnpj = cnpj;
            user.Login = login;
            user.Senha = senha;
            user.Nome = nome;
             
-           bool statusSave = await _IUserEmpreendedorRepository.save(user);
+           bool statusSave = _IUserEmpreendedorRepository.save(user);
             
             return statusSave;
         } 

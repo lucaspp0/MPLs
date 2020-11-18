@@ -23,18 +23,18 @@ namespace MPL.teste.util
       }
 
       [Fact]
-      public async void ShouldBeSerializeObject()
+      public  void ShouldBeSerializeObject()
       {
-        string objSerialized = await JsonUtil<UnitTestClass>.Serialize(UnitTestClass.Build());
+        string objSerialized = JsonUtil<UnitTestClass>.Serialize(UnitTestClass.Build());
         string expectedResult = "{\"Name\":\"Test\",\"Description\":\"Test Description\"}";
         Assert.Equal(expectedResult, objSerialized);
       }
 
       [Fact]
-      public async void ShouldBeDeserializeObject()
+      public  void ShouldBeDeserializeObject()
       {
         UnitTestClass obj = UnitTestClass.Build();
-        string objSerialized = await JsonUtil<UnitTestClass>.Serialize(obj);
+        string objSerialized = JsonUtil<UnitTestClass>.Serialize(obj);
         UnitTestClass objDeserialized = JsonUtil<UnitTestClass>.Deserialize(objSerialized);
 
         Assert.True(obj.Equals(objDeserialized));

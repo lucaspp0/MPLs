@@ -9,7 +9,7 @@ namespace MPL.View.Empreendedor
 {
   public class MenuEmpreendedorScreen : IScreen
   {
-    public async Task Show()
+    public  void Show()
     {
       
       string result = GetInput($@"

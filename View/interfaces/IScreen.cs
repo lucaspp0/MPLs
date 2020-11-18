@@ -5,7 +5,7 @@ namespace MPL.View.interfaces
 {
   public interface IScreen
   {
-      public Task Show();
+      public void Show();
   }
 
 }

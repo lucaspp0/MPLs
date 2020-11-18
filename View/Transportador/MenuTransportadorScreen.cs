@@ -8,7 +8,7 @@ namespace MPL.View.Transportador
 {
   public class MenuTransportadorScreen : IScreen
   {
-    public async Task Show()
+    public  void Show()
     {
       string result = GetInput($@"
       1 - Alterar Status Venda

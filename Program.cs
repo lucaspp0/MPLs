@@ -11,23 +11,20 @@ namespace MPL
     public class Program
     {
         
-        public async static Task InitializeComponentes(){
-            await BaseRepository<object>.FillBdByFile();
+        public static void InitializeComponentes(){
+            BaseRepository<object>.FillBdByFile();
             Injector.initialize();
         }
 
-        public async static Task init() {
-            await Program.InitializeComponentes(); 
+        public static void Init() {
+            Program.InitializeComponentes(); 
             new MainViewManager(new MainScreen()).Start();
         }
 
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
             ClearConsole();
-            Task mainTask = init();
-
-            while(!mainTask.IsCompleted) { }
-            Console.WriteLine("Final");
+            Program.Init();
         }
     }
 }

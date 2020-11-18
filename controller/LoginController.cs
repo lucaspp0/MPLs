@@ -14,8 +14,8 @@ namespace MPL.controller
         _IUserRepository = IUserRepository;
       }
 
-      public async Task<bool> DoLogin(string login, string senha){
-        List<UsuarioConsumidor> usuarioEncontrado = (await _IUserRepository.selectAll());
+      public  bool DoLogin(string login, string senha){
+        List<UsuarioConsumidor> usuarioEncontrado = (_IUserRepository.selectAll());
         for (int i = 0; i < usuarioEncontrado.Count; i++)
         {
             if(usuarioEncontrado[i].Senha == senha && usuarioEncontrado[i].Login == login){

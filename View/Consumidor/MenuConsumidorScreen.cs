@@ -8,7 +8,7 @@ namespace MPL.View.Consumidor
 {
   public class MenuConsumidorScreen : IScreen
   {
-    public async Task Show()
+    public  void Show()
     {
       ShowScreen("MenuConsumidorScreen");
     }

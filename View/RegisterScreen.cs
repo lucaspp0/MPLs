@@ -8,7 +8,7 @@ namespace MPL.View
 {
   public class RegisterScreen : IScreen
   {
-    public async Task Show()
+    public  void Show()
     {
       bool loginSucess = false;
 
@@ -23,23 +23,18 @@ Escolha o tipo de usuário: ");
 
       if(tipo == "1") {
         string cnpj = GetInput("Informe o CPNJ: ");
-        loginSucess = await Injector.ClienteEmpreenderController.RegisterClienteEmpreende(nome,login,senha,cnpj);
+        loginSucess = Injector.ClienteEmpreenderController.RegisterClienteEmpreende(nome,login,senha,cnpj);
       }else if(tipo == "2"){
         string cpf = GetInput("Informe o CPF: ");
-        loginSucess = await Injector.ClienteConsumidorController.RegisterClienteConsumidor(nome,login,senha,cpf);
+        loginSucess = Injector.ClienteConsumidorController.RegisterClienteConsumidor(nome,login,senha,cpf);
       }else{
         ShowScreen("tipo de usuário invalido");  
-      }
-
-      ShowScreen($"tipo de usuario {tipo}");
-      
-      if(loginSucess){
-        MainViewManager.ChangeScreen(new LoginScreen());
-      }else{
-        MainViewManager.ChangeScreen(new MainScreen());
+        GetWaitingInput();
       }
       
-      GetWaitingInput();
+      if(loginSucess) MainViewManager.ChangeScreen(new LoginScreen());
+      else MainViewManager.ChangeScreen(new MainScreen());
+      
     }
   }
 }

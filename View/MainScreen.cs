@@ -13,7 +13,7 @@ public class MainScreen : IScreen
       2 - Cadastro
 Selecione uma ação: ";
   }
-  public async Task Show()
+  public  void Show()
   {
     string choice = GetInput(BuilMaindMenu());
     if(choice == "1")
