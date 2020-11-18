@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 
+
 using System;
 using MPL.View;
 using MPL.model;
@@ -23,11 +24,20 @@ namespace MPL.controller
 
             List<UsuarioConsumidor> usuarioConsumidorList = (await _IUserRepository.selectAll());
 
-            
         
         }
-        
-     
+
+        public async Task<bool> RegisterClienteConsumidor(string nome,string login,string senha,string cpf){
+           UsuarioConsumidor user = new UsuarioConsumidor();
+           user.Cpf = cpf;
+           user.Login = login;
+           user.Senha = senha;
+           user.Nome = nome;
+            
+           bool statusSave = await _IUserRepository.save(user);
+            
+            return statusSave;
+        } 
 
 
            

@@ -19,16 +19,14 @@ namespace MPL
             // new MainViewManager(new MainScreen()).Start();
         }
 
-        public static IUserRepository _IUserRepository;
-
         public async static Task init() {
             
            // await new MenuTransportadorScreen().Show();
 
             await Program.InitializeComponentes(); 
            // _IUserRepository = Injector.IUserRepository;
-            new MainViewManager(new LoginScreen()).Start();
-            
+            //new MainViewManager(new LoginScreen()).Start();
+            new MainViewManager(new MainScreen()).Start();
 /*
             UsuarioConsumidor user = new UsuarioConsumidor();
             user.Cpf = 123;

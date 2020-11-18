@@ -19,8 +19,8 @@ namespace MPL.utils
 
     public static void GetWaitingInput()
     {
-      ShowScreen("digite algo para continuar ...");
-      Console.ReadKey();
+      //ShowScreen("digite algo para continuar ...");
+      //Console.ReadLine();
     }
   }
 }

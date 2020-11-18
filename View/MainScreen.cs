@@ -20,6 +20,7 @@ Selecione uma ação: ";
       MainViewManager.ChangeScreen(new LoginScreen());
     else if(choice == "2")
       MainViewManager.ChangeScreen(new RegisterScreen());
+
     else
       ShowScreen("opção inválida");
 

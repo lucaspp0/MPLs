@@ -2,8 +2,8 @@ namespace MPL.model
 {
   public class UsuarioConsumidor : Pessoa
   {
-      private int cpf;
-      public int Cpf
+      private string cpf;
+      public string Cpf
       {
           get { return cpf; }
           set { cpf = value; }

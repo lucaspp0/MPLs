@@ -13,6 +13,10 @@ namespace MPL.utils
   {
       // repositories
       public static IUserRepository IUserRepository;
+      public static IUserEmpreendedorRepository IUserEmpreendedorRepository;
+
+      public static ITransportadorRepository ITransportadorRepository;
+
 
       public static TransportRepositoryImpl TransportRepositoryImpl;
       public static EmpreenderRepositoryImpl EmpreenderRepositoryImpl;
@@ -20,17 +24,19 @@ namespace MPL.utils
       // Controllers
       //public static LoginController LoginController;
       public static ClientController ClientController;
+      public static ClienteConsumidorController  ClienteConsumidorController;
+      public static ClienteEmpreenderController  ClienteEmpreenderController;
 
       public static void initialize(){
-        Console.WriteLine("antes initi");
+        ClienteEmpreenderController ClienteEmpreenderController = new ClienteEmpreenderController(IUserEmpreendedorRepository);
+        ClienteConsumidorController ClienteConsumidorController = new ClienteConsumidorController(IUserRepository);
+        ClientController ClientController = new ClientController(IUserRepository,ITransportadorRepository,IUserEmpreendedorRepository);
+
         IUserRepository = new UserRepositoryImpl(DataBaseGod._DATABASE.UsuarioConsumidor);
-        Console.WriteLine("meio initi");
         TransportRepositoryImpl = new TransportRepositoryImpl(DataBaseGod._DATABASE.ContaTransportador);
-        Console.WriteLine("meio initi 2");
         EmpreenderRepositoryImpl = new EmpreenderRepositoryImpl(DataBaseGod._DATABASE.UsuarioEmpreender);
-        Console.WriteLine("meio initi 2");
         ClientController = new ClientController(IUserRepository,TransportRepositoryImpl ,EmpreenderRepositoryImpl);
-        Console.WriteLine("final initi");
+
         
       }
       
