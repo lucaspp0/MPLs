@@ -5,7 +5,7 @@ using MPL.utils;
 using static MPL.utils.ViewUtils;
 using MPL.model;
 using MPL.repository;
-using MPL.View.Transportador;
+using MPL.View;
 
 namespace MPL
 {
@@ -23,17 +23,20 @@ namespace MPL
 
         public async static Task init() {
             
-            await new MenuTransportadorScreen().Show();
+           // await new MenuTransportadorScreen().Show();
 
             await Program.InitializeComponentes(); 
-            _IUserRepository = Injector.IUserRepository;
-
+           // _IUserRepository = Injector.IUserRepository;
+            new MainViewManager(new LoginScreen()).Start();
+            
+/*
             UsuarioConsumidor user = new UsuarioConsumidor();
             user.Cpf = 123;
             user.Login = "123";
             user.Nome = "123";
             user.Senha = "123";
-            bool result = await _IUserRepository.save(user);
+            */
+           // bool result = await _IUserRepository.save(user);
         }
 
         static void Main(string[] args)
