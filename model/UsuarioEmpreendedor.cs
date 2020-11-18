@@ -3,8 +3,8 @@ namespace MPL.model
 {
   public class UsuarioEmpreendedor : Pessoa
   {
-      private int cnpj;
-      public int Cnpj
+      private string cnpj;
+      public string Cnpj
       {
           get { return cnpj; }
           set { cnpj = value; }

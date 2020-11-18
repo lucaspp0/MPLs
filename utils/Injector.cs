@@ -13,19 +13,23 @@ namespace MPL.utils
   {
       // repositories
       public static IUserRepository IUserRepository;
-      public static TransportRepositoryImpl TransportRepositoryImpl;
-      public static EmpreenderRepositoryImpl EmpreenderRepositoryImpl;
+      public static IUserEmpreendedorRepository IUserEmpreendedorRepository;
+      public static ITransportadorRepository ITransportadorRepository;
 
       // Controllers
       public static ClientController ClientController;
+      public static ClienteConsumidorController  ClienteConsumidorController;
+      public static ClienteEmpreenderController  ClienteEmpreenderController;
 
       public static void initialize(){
+            
         IUserRepository = new UserRepositoryImpl(DataBaseGod._DATABASE.UsuarioConsumidor);
-        TransportRepositoryImpl = new TransportRepositoryImpl(DataBaseGod._DATABASE.ContaTransportador);
-        EmpreenderRepositoryImpl = new EmpreenderRepositoryImpl(DataBaseGod._DATABASE.UsuarioEmpreender);
-        ClientController = new ClientController(IUserRepository,TransportRepositoryImpl ,EmpreenderRepositoryImpl);
-        
+        ITransportadorRepository = new TransportRepositoryImpl(DataBaseGod._DATABASE.ContaTransportador);
+        IUserEmpreendedorRepository = new EmpreenderRepositoryImpl(DataBaseGod._DATABASE.UsuarioEmpreender);
+
+        ClientController = new ClientController(IUserRepository, ITransportadorRepository, IUserEmpreendedorRepository);        
+        ClienteEmpreenderController = new ClienteEmpreenderController(IUserEmpreendedorRepository);
+        ClienteConsumidorController = new ClienteConsumidorController(IUserRepository);
       }
-      
   }
 }

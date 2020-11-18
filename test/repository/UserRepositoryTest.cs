@@ -21,7 +21,7 @@ namespace MPL.teste.repository
     {
       await init();
       UsuarioConsumidor user = new UsuarioConsumidor();
-      user.Cpf = 123;
+      user.Cpf = "123";
       user.Login = "123";
       user.Nome = "123";
       user.Senha = "123";

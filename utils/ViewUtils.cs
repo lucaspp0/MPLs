@@ -7,7 +7,9 @@ namespace MPL.utils
 {
   class ViewUtils
   {
-    public static void ClearConsole() => Console.Clear();
+    public static void ClearConsole(){
+      // Console.Clear();
+    } 
 
     public static void ShowScreen(string content) => Console.WriteLine(content);
 
@@ -20,7 +22,7 @@ namespace MPL.utils
     public static void GetWaitingInput()
     {
       ShowScreen("digite algo para continuar ...");
-      Console.ReadKey();
+      Console.ReadLine();
     }
   }
 }
