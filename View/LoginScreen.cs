@@ -12,28 +12,32 @@ using MPL.View.Transportador;
 
 public class LoginScreen : IScreen
 {
-    public async Task Show()
+  public async Task Show()
   {
 
     string login = GetInput("insira seu login: ");
     string senha = GetInput("insira a sua senha: ");
 
     bool loginSucess = await Injector.ClientController.Login(login, senha);
-    if(loginSucess){
-      if(MainViewManager.CurrentUser is UsuarioConsumidor){
-        MainViewManager.ChangeScreen(new MenuConsumidorScreen());
-      }else if(MainViewManager.CurrentUser is UsuarioEmpreendedor){
-        MainViewManager.ChangeScreen(new MenuEmpreendedorScreen());
-      }else if(MainViewManager.CurrentUser is ContaTransportador){
-        MainViewManager.ChangeScreen(new MenuTransportadorScreen());
-      }else{
+    if (loginSucess)
+    {
+
+      if (MainViewManager.CurrentUser is UsuarioConsumidor) MainViewManager.ChangeScreen(new MenuConsumidorScreen());
+      else if (MainViewManager.CurrentUser is UsuarioEmpreendedor) MainViewManager.ChangeScreen(new MenuEmpreendedorScreen());
+      else if (MainViewManager.CurrentUser is ContaTransportador) MainViewManager.ChangeScreen(new MenuTransportadorScreen());
+      else
+      {
         ShowScreen("Tipo de usuário não encontrado");
         GetWaitingInput();
       }
-    }else{
+
+    }
+    else
+    {
       ShowScreen("Login incorreto");
       GetWaitingInput();
+      MainViewManager.ChangeScreen(new MainScreen());
     }
-    
+
   }
 }

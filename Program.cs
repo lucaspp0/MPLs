@@ -3,8 +3,7 @@ using System;
 
 using MPL.utils;
 using static MPL.utils.ViewUtils;
-using MPL.model;
-using MPL.repository;
+using MPL.repository.impl;
 using MPL.View;
 
 namespace MPL
@@ -13,28 +12,13 @@ namespace MPL
     {
         
         public async static Task InitializeComponentes(){
-            //await BaseRepository<object>.FillBd();
+            await BaseRepository<object>.FillBdByFile();
             Injector.initialize();
-            Console.WriteLine("final InitializeComponentes");
-            // new MainViewManager(new MainScreen()).Start();
         }
 
         public async static Task init() {
-            
-           // await new MenuTransportadorScreen().Show();
-
             await Program.InitializeComponentes(); 
-           // _IUserRepository = Injector.IUserRepository;
-            //new MainViewManager(new LoginScreen()).Start();
             new MainViewManager(new MainScreen()).Start();
-/*
-            UsuarioConsumidor user = new UsuarioConsumidor();
-            user.Cpf = 123;
-            user.Login = "123";
-            user.Nome = "123";
-            user.Senha = "123";
-            */
-           // bool result = await _IUserRepository.save(user);
         }
 
         static void Main(string[] args)
@@ -43,7 +27,7 @@ namespace MPL
             Task mainTask = init();
 
             while(!mainTask.IsCompleted) { }
-            Console.WriteLine("Final geral");
+            Console.WriteLine("Final");
         }
     }
 }

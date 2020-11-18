@@ -12,14 +12,13 @@ namespace MPL.View.Transportador
     {
       string result = GetInput($@"
       1 - Alterar Status Venda
-      2 - Logof
+      2 - Sair
   Digite a opção: ");
 
       if(result == "1"){
         MainViewManager.ChangeScreen(new ListagemVendasScreen());
       }else if(result == "2"){
-        MainViewManager.CurrentUser = null;
-        MainViewManager.ChangeScreen(new LoginScreen());
+        MainViewManager.logout();
       }else{
         ShowScreen("Escolha inválida");
         GetWaitingInput();

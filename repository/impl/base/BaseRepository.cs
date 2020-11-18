@@ -51,24 +51,16 @@ namespace MPL.repository.impl
     }
 
     private static async Task<bool> FillFileByBd(){
-      /*
-      Console.WriteLine("inicio FillBd: ");
-      if(DataBaseGod._DATABASE == null) await FillBd();
-      Console.WriteLine("fillbd");
-      */
       string content = await JsonUtil<DataBaseGod>.Serialize(DataBaseGod._DATABASE);
-      //Console.WriteLine("Conteudo: "+content);
       return Fileutils.WriteFile(content, Constants.Path_BD);
     }
 
-    private static async Task<bool> FillBdByFile(){
+    public static async Task<bool> FillBdByFile(){
       string content = await Fileutils.ReadFile(Constants.Path_BD);
       if(string.IsNullOrWhiteSpace(content)) return false;
       DataBaseGod._DATABASE = JsonUtil<DataBaseGod>.Deserialize(content);
       return true;
     }
-
-
 
     private void setIdFromObj(T obj, int id){
         Type TypeObj = typeof(T);

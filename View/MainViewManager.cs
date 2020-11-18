@@ -13,6 +13,10 @@ namespace MPL.View
       private static IScreen currentScreen;
       public static Pessoa CurrentUser;
       
+      public static void logout(){
+        CurrentUser = null;
+        ChangeScreen(new MainScreen());
+      }
 
       public MainViewManager(IScreen currentScreen){
         ChangeScreen(currentScreen);
