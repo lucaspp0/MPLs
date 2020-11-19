@@ -32,14 +32,11 @@ namespace MPL.controller
 
     public  bool Login(string login, string senha)
     {
-      Pessoa usuarioConsumidor =
-        FilterUser((_IUserRepository.selectAll()).Select(x => (Pessoa)x).ToList(), senha, login);
+      Pessoa usuarioConsumidor = FilterUser((_IUserRepository.selectAll()).Select(x => (Pessoa)x).ToList(), senha, login);
 
-      Pessoa usuarioEmpreendedor =
-        FilterUser((_IUserEmpreendedorRepository.selectAll()).Select(x => (Pessoa)x).ToList(), senha, login);
+      Pessoa usuarioEmpreendedor = FilterUser((_IUserEmpreendedorRepository.selectAll()).Select(x => (Pessoa)x).ToList(), senha, login);
 
-      Pessoa usuarioTransportador =
-        FilterUser((_ITransportadorRepository.selectAll()).Select(x => (Pessoa)x).ToList(), senha, login);
+      Pessoa usuarioTransportador = FilterUser((_ITransportadorRepository.selectAll()).Select(x => (Pessoa)x).ToList(), senha, login);
 
       List<Pessoa> listaPessoas = new List<Pessoa>() { usuarioConsumidor, usuarioEmpreendedor, usuarioTransportador };
 
@@ -51,4 +48,5 @@ namespace MPL.controller
       return pessoaEncontrada != null;
     }
   }
+
 }
