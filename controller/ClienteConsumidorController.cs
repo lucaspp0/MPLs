@@ -10,21 +10,12 @@ namespace MPL.controller
 {
     public class ClienteConsumidorController
     {
-        IUserRepository _IUserRepository;
+        private UsuarioConsumidor clienteLogado;
 
-        public ClienteConsumidorController(IUserRepository IUserRepository)
+        public ClienteConsumidorController()
         {
-            _IUserRepository = IUserRepository;
-
-        }
-
-        public async Task SelecionarProduto(int idProduto)
-        {
-
-            List<UsuarioConsumidor> usuarioConsumidorList = (await _IUserRepository.selectAll());
-
-            
-        
+            this.clienteLogado = UsuarioConsumidor MainViewManager.CurrentUser;
+            UsuarioConsumidor clienteLogado;   
         }
         
      
