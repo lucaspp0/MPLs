@@ -11,12 +11,10 @@ namespace MPL.utils
       {
         if(!File.Exists(path))
           File.Create(path);
-
         File.WriteAllText(path, content);
         return true;
       }
       catch (Exception){ return false; }
-      
     }
 
     public static string ReadFile(string path){

@@ -12,7 +12,6 @@ namespace MPL.View
       public static bool runningProgram = false;
       private static IScreen currentScreen;
       public static Pessoa CurrentUser;
-      
       public static void logout(){
         CurrentUser = null;
         ChangeScreen(new MainScreen());

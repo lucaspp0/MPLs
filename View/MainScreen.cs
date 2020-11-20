@@ -11,7 +11,7 @@ public class MainScreen : IScreen
     return $@" 
       1 - Login
       2 - Cadastro
-Selecione uma ação: ";
+Selecione uma ação:";
   }
   public  void Show()
   {
@@ -20,7 +20,6 @@ Selecione uma ação: ";
       MainViewManager.ChangeScreen(new LoginScreen());
     else if(choice == "2")
       MainViewManager.ChangeScreen(new RegisterScreen());
-
     else
       ShowScreen("opção inválida");
 
