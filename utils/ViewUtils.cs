@@ -7,7 +7,9 @@ namespace MPL.utils
 {
   class ViewUtils
   {
-    public static void ClearConsole() => Console.Clear();
+    public static void ClearConsole(){
+      Console.Clear();
+    } 
 
     public static void ShowScreen(string content) => Console.WriteLine(content);
 
@@ -15,6 +17,7 @@ namespace MPL.utils
     {
       if (!string.IsNullOrWhiteSpace(content)) Console.Write(content);
       return Console.ReadLine().Trim();
+      // return "1";
     }
 
     public static void GetWaitingInput()

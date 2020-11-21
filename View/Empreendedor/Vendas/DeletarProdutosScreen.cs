@@ -8,7 +8,7 @@ namespace MPL.View.Empreendedor.Vendas
 {
   public class DeletarProdutosScreen : IScreen
   {
-      public async Task Show(){
+      public  void Show(){
         ShowScreen("Deletar Produtos");
       }
   }

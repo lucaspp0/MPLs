@@ -11,20 +11,18 @@ namespace MPL.utils
       {
         if(!File.Exists(path))
           File.Create(path);
-
         File.WriteAllText(path, content);
         return true;
       }
       catch (Exception){ return false; }
-      
     }
 
-    public static async Task<string> ReadFile(string path){
+    public static string ReadFile(string path){
       try
       {
         if(!File.Exists(path)) return string.Empty;
         
-        return await File.ReadAllTextAsync(path);
+        return File.ReadAllText(path);
       }
       catch (Exception){ return string.Empty; }
     }

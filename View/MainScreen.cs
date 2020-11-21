@@ -11,9 +11,9 @@ public class MainScreen : IScreen
     return $@" 
       1 - Login
       2 - Cadastro
-Selecione uma ação: ";
+Selecione uma ação:";
   }
-  public async Task Show()
+  public  void Show()
   {
     string choice = GetInput(BuilMaindMenu());
     if(choice == "1")

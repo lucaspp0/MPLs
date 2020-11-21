@@ -9,7 +9,7 @@ namespace MPL.View.Empreendedor
 {
   public class MenuEmpreendedorScreen : IScreen
   {
-    public async Task Show()
+    public  void Show()
     {
       
       string result = GetInput($@"
@@ -17,6 +17,7 @@ namespace MPL.View.Empreendedor
       2 - Visualizar produtos
       3 - Cadastrar produtos
       4 - Deletar Produtos
+      5 - Sair
 
 Digite a opção: ");
 
@@ -28,6 +29,8 @@ Digite a opção: ");
         new CadastrarProdutosScreen().Show();
       }else if(result == "4"){
         new DeletarProdutosScreen().Show();
+      }else if(result == "5"){
+        MainViewManager.logout();
       }else{
         ShowScreen("Escolha inválida");
         GetWaitingInput();

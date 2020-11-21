@@ -1,6 +1,8 @@
 using System;
+
 using MPL.View.interfaces;
 using MPL.model;
+using static MPL.utils.ViewUtils;
 
 namespace MPL.View
 {
@@ -10,7 +12,10 @@ namespace MPL.View
       public static bool runningProgram = false;
       private static IScreen currentScreen;
       public static Pessoa CurrentUser;
-      
+      public static void logout(){
+        CurrentUser = null;
+        ChangeScreen(new MainScreen());
+      }
 
       public MainViewManager(IScreen currentScreen){
         ChangeScreen(currentScreen);
@@ -28,6 +33,7 @@ namespace MPL.View
       private void Run(){
         while(runningProgram && currentScreen != null){
           currentScreen.Show();
+          ClearConsole();
         }
       }
 
