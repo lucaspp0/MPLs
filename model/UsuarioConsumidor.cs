@@ -9,5 +9,12 @@ namespace MPL.model
           set { cpf = value; }
       }
       
+      public UsuarioConsumidor(string cpf,string nome, string login, string senha){
+        this.cpf = cpf;
+        this.nome = nome;
+        this.login = login;
+        this.senha = senha;
+      }
+      
   }
 }

@@ -8,6 +8,7 @@ namespace MPL.model
           get { return prioridadeEspecializada; }
           set { prioridadeEspecializada = value; }
       }
+      
          
   }
 }

@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 namespace MPL.model
 {
   public class UsuarioEmpreendedor : Pessoa
@@ -15,6 +16,20 @@ namespace MPL.model
       {
           get { return tempo_cadastro; }
           set { tempo_cadastro = value; }
+      }
+      private List<ItemEstoque> estoque;
+      public List<ItemEstoque> Estoque
+      {
+          get { return estoque; }
+          set { estoque = value; }
+      }
+      
+
+      public UsuarioEmpreendedor(string cnpj,string nome, string login, string senha){
+        this.cnpj = cnpj;
+        this.nome = nome;
+        this.login = login;
+        this.senha = senha;
       }
       
   }

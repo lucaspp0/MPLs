@@ -2,6 +2,13 @@ namespace MPL.model
 {
   public class Produto : ABaseModel
   {
+      private string nome;
+      public string Nome
+      {
+          get { return nome; }
+          set { nome = value; }
+      }
+      
       private float peso;
       public float Peso
       {
@@ -19,6 +26,12 @@ namespace MPL.model
       {
           get { return categoria; }
           set { categoria = value; }
+      }
+      public Produto(string nome,float peso, float valor, string categoria){
+          this.nome = nome;
+          this.peso = peso;
+          this.valor = valor;
+          this.categoria = categoria;
       }
   }
 }

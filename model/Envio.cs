@@ -8,6 +8,9 @@ namespace MPL.model
           get { return valorFreteGratis; }
           set { valorFreteGratis = value; }
       }
+      public Envio(float valorFreteGratis){
+        this.valorFreteGratis = valorFreteGratis;
+      }
       
   }
 }

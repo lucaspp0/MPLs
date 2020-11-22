@@ -39,5 +39,10 @@ namespace MPL.controller
             return statusSave;
         } 
 
+        public void CadastrarProdutoEstoque(string nome,float peso, float valor,string categoria,int estoqueQtde,string endereco){
+            Produto produto = new Produto(nome,peso,valor,categoria);
+
+        }
+
     }
 }

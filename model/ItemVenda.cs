@@ -21,6 +21,20 @@ namespace MPL.model
           get { return quantidade; }
           set { quantidade = value; }
       }
+      private Envio envio;
+      public Envio Envio
+      {
+          get { return envio; }
+          set { envio = value; }
+      }
+      
+      
+      public ItemVenda(float frete, string status, int quantidade, Envio envio){
+          this.frete = frete;
+          this.status = status;
+          this.quantidade = quantidade;
+          this.envio = envio;
+      }
       
   }
 }

@@ -1,24 +1,21 @@
+using System.Collections.Generic;
 namespace MPL.model
 {
-  public class ContaTransportador : Pessoa
+  public class ContaTransportadora : Pessoa
   {
-      private int quantidade;
-      public int Quantidade
+       private List<Venda> vendas;
+       public List<Venda> Vendas
       {
-          get { return quantidade; }
-          set { quantidade = value; }
+          get { return vendas; }
+          set { vendas = value; }
       }
-      private Produto produto;
-      public Produto Produto
-      {
-          get { return produto; }
-          set { produto = value; }
-      }
-      private string endereco;
-      public string Endereco
-      {
-          get { return endereco; }
-          set { endereco = value; }
+      
+
+      public ContaTransportadora(string nome, string login, string senha){
+          this.nome = nome;
+          this.login = login;
+          this.senha = senha;
+
       }
       
   }
