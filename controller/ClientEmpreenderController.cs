@@ -12,6 +12,9 @@ namespace MPL.controller
     {
         IUserEmpreendedorRepository _IUserEmpreendedorRepository;
 
+
+        public bool Salvar(UsuarioEmpreendedor usuarioEmpreendedor) => this._IUserEmpreendedorRepository.save(usuarioEmpreendedor);
+
         public ClienteEmpreenderController(IUserEmpreendedorRepository IUserEmpreendedorRepository)
         {
             _IUserEmpreendedorRepository = IUserEmpreendedorRepository;
@@ -43,17 +46,7 @@ namespace MPL.controller
         {
             UsuarioEmpreendedor usuarioLogado = (MainViewManager.CurrentUser as UsuarioEmpreendedor);
             usuarioLogado.Estoque[index].Quantidade += quantidade;
+            Salvar(usuarioLogado);
         }
-
-        public void CadastrarProdutoEstoque(string nome, float peso, float valor, string categoria, int estoqueQtde, string endereco)
-        {
-            UsuarioEmpreendedor usuarioLogado = (MainViewManager.CurrentUser as UsuarioEmpreendedor);
-            Produto produto = new Produto(nome, peso, valor, categoria);
-            ItemEstoque itensEstoque = new ItemEstoque(estoqueQtde, produto, endereco);
-            usuarioLogado.ArmazenarNoEstoque(itensEstoque);
-
-
-        }
-
     }
 }

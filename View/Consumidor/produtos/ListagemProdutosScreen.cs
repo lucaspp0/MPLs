@@ -30,7 +30,7 @@ namespace MPL.View.Consumidor.produtos
     private void VoltarTelaConsumidor() => MainViewManager.ChangeScreen( new MenuConsumidorScreen() );
 
 
-    public  void Show()
+    public void Show()
     {
       string result = GetInput("digite a categoria ou o nome do produto: ").Trim().ToLower();
       List<ItemEstoque> produtos =  _IItemEstoqueRepository.selectAll()
@@ -40,7 +40,10 @@ namespace MPL.View.Consumidor.produtos
       produtos.ForEach(x => ShowScreen( $"{x.Produto.Id} - {x.Produto.Nome}" ) );
       int id = GetInputInt("selecione o Id do produto para detalhar ou -1 parar sair: ");
 
-      if(id <= -1) VoltarTelaConsumidor();
+      if(id <= -1) {
+        VoltarTelaConsumidor();
+        return;
+      }
       
       ItemEstoque produtoSelecionado = produtos.Where(x => x.Id == id).FirstOrDefault();
 

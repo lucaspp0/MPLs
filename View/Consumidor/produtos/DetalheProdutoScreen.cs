@@ -25,7 +25,8 @@ namespace MPL.View.Consumidor.produtos
 
     public void Show()
     {
-      ShowScreen(this._itemEstoque.Produto.ToString()+"Qtd. Estoque: "+this._itemEstoque.Quantidade);
+      ShowScreen($@"Detalhe do produto: 
+      {this._itemEstoque.Produto.ToString()}Qtd. Estoque: {this._itemEstoque.Quantidade}");
 
       int result = GetInputInt(@"
         Opções

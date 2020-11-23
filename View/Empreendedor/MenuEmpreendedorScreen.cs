@@ -24,13 +24,13 @@ namespace MPL.View.Empreendedor
 Digite a opção: ");
 
       if(result == "1"){
-        new VisualizarVendasScreen().Show();
+        MainViewManager.ChangeScreen(new VisualizarVendasScreen());
       }else if(result == "2"){
-        new VisualizarProdutoscreen().Show();
+        MainViewManager.ChangeScreen(new VisualizarProdutoscreen());
       }else if(result == "3"){
-        new CadastrarProdutosScreen().Show();
+        MainViewManager.ChangeScreen(new CadastrarProdutosScreen());
       }else if(result == "4"){
-        new DeletarProdutosScreen().Show();
+        MainViewManager.ChangeScreen(new DeletarProdutosScreen());
       }else if(result == "5"){
         MainViewManager.logout();
       }else{

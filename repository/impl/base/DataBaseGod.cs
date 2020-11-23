@@ -50,6 +50,13 @@ namespace MPL.repository.impl
       get { return itemVenda; } 
       set { itemVenda = value; } 
     }
+
+    private List<Produto> produto = new List<Produto>();
+    public List<Produto> Produto { 
+      get { return produto; } 
+      set { produto = value; } 
+    }
+
   }
 
 }
