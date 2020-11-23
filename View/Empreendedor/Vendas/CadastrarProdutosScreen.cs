@@ -27,10 +27,10 @@ Digite a opção: ");
             if (result == "1")
             {
                 string nome = GetInput("Insira a nomeclatura do produto: ");
-                float peso = float.Parse(GetInput("Insira o peso do produto: "));
-                float valor = float.Parse(GetInput("Digite o valor do produto: "));
+                float peso = GetInputFloat("Insira o peso do produto: ");
+                float valor = GetInputFloat("Digite o valor do produto: ");
                 string categoria = GetInput("Descreva em qual categoria o produto se encaixa: ");
-                int estoqueQtde = int.Parse(GetInput("Digite quantos deste produto deseja adicionar ao estoque: "));
+                int estoqueQtde = GetInputInt("Digite quantos deste produto deseja adicionar ao estoque: ");
                 string endereco = GetInput("Digite o endereço onde será estocado o produto: ");
 
                 
@@ -64,14 +64,14 @@ Digite a opção: ");
                     }
                     else if (choose >= 0 || choose <= i)
                     {
-                        int quantidade = GetInputInt("Digite a quantidade que deseja adicionar de produtos que deseja adicionar em determinado Item de Estoque: ");
+                        int quantidade = GetInputInt("Digite a quantidade que deseja adicionar de produtos ao determinado Item de Estoque: ");
                         while (quantidade < 1)
                         {
                             quantidade = GetInputInt("Digite um valor válido: ");
                         }
-                        Injector.ClienteEmpreenderController.AcrescentarQtde(quantidade, choose);
+                        Injector.ClienteEmpreenderController.AcrescentarQtde(quantidade, choose-1);
                         MainViewManager.ChangeScreen(new MenuEmpreendedorScreen());
-            
+                        
                 }
             }
             else if (result == "3")
