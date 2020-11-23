@@ -6,6 +6,8 @@ using MPL.model;
 using MPL.View.interfaces;
 using MPL.repository;
 using static MPL.utils.ViewUtils;
+using MPL.View.Consumidor.produtos;
+
 namespace MPL.View.Consumidor.vendas
 {
   public class MenuCompraScreen : IScreen
@@ -29,19 +31,22 @@ namespace MPL.View.Consumidor.vendas
     public void Show()
     {
       string result = GetInput("digite a categoria ou o nome do produto: ").Trim().ToLower();
-      List<Produto> produtos =  _IItemEstoqueRepository.selectAll()
+      List<ItemEstoque> produtos =  _IItemEstoqueRepository.selectAll()
                                   .FindAll( x => x.Quantidade > 0 && PesquisarProduto(x.Produto, result) )
-                                  .Select( x => x.Produto ).ToList();
+                                  .ToList();
                                   
-      produtos.ForEach(x => ShowScreen( $"{x.Id} - {x.Nome}" ) );
-      result = GetInput("selecione o Id do produto para detalhar ou -1 parar sair");
+      produtos.ForEach(x => ShowScreen( $"{x.Produto.Id} - {x.Produto.Nome}" ) );
+      int id = GetInputInt("selecione o Id do produto para detalhar ou -1 parar sair");
 
-      if(result == "-1") VoltarTelaConsumidor();
+      if(id <= -1) VoltarTelaConsumidor();
+      
+      ItemEstoque produtoSelecionado = produtos.Where(x => x.Id == id).FirstOrDefault();
 
-      if(int.TryParse(result, out int IdSelecionado)){
-        Produto produtoSelecianado = produtos.FindAll();
-      } else {
-        ShowScreen("Formato de Id incorreto");
+      if(produtoSelecionado != null) {
+        MainViewManager.ChangeScreen(new DetalheProdutoScreen(produtoSelecionado));
+      }
+      else{
+        ShowScreen("produto não encontrado");
         GetWaitingInput();
         VoltarTelaConsumidor();
       }

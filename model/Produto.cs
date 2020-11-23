@@ -42,7 +42,7 @@ namespace MPL.model
             peso: {this.peso}
             valor: {this.valor}
             categoria: {this.categoria}
-          ";
+            ";
     }
   }
 }

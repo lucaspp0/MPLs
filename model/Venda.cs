@@ -3,11 +3,11 @@ namespace MPL.model
 {
   public class Venda : ABaseModel
   {
-      private string status;
-      public string Status
+      private UsuarioConsumidor usuarioConsumidor;
+      public UsuarioConsumidor UsuarioConsumidory
       {
-          get { return status; }
-          set { status = value; }
+          get { return usuarioConsumidor; }
+          set { usuarioConsumidor = value; }
       }
       
       private string endereco;
@@ -30,9 +30,12 @@ namespace MPL.model
           set { itemVendas = value; }
       }
       
-      public Venda(string status,string endereco){
-          this.status = status;
+      public Venda(UsuarioConsumidor usuarioConsumidor, string endereco){
           this.endereco = endereco;
+          this.UsuarioConsumidory = usuarioConsumidor;
+      }
+      public Venda(UsuarioConsumidor usuarioConsumidor){
+          this.UsuarioConsumidory = usuarioConsumidor;
       }
       
   }

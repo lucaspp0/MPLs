@@ -12,5 +12,10 @@ namespace MPL.model
         this.valorFreteGratis = valorFreteGratis;
       }
       
+      public virtual float CalcularFrete(float ValorProduto){
+        if(ValorProduto <= ValorFreteGratis) return 0;
+        return 10;
+      }
+
   }
 }

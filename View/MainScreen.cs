@@ -6,23 +6,21 @@ using static MPL.utils.ViewUtils;
 
 public class MainScreen : IScreen
 {
-
-  public string BuilMaindMenu(){
-    return $@" 
-      1 - Login
-      2 - Cadastro
-Selecione uma ação:";
-  }
+  
   public  void Show()
   {
-    string choice = GetInput(BuilMaindMenu());
+    string choice = GetInput(@" 
+      1 - Login
+      2 - Cadastro
+Selecione uma ação:");
+
     if(choice == "1")
       MainViewManager.ChangeScreen(new LoginScreen());
     else if(choice == "2")
       MainViewManager.ChangeScreen(new RegisterScreen());
-    else
+    else{
       ShowScreen("opção inválida");
-
-    ClearConsole();
+      GetWaitingInput();
+    }
   }
 }

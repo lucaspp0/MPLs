@@ -8,6 +8,13 @@ namespace MPL.model
           get { return frete; }
           set { frete = value; }
       }
+
+      private Produto produto;
+      public Produto Produto
+      {
+          get { return produto; }
+          set { produto = value; }
+      }
       
       private string status;
       public string Status
@@ -28,13 +35,17 @@ namespace MPL.model
           set { envio = value; }
       }
       
-      
+      public ItemVenda(Produto produto, int Quantidade, Envio Envio){
+          this.status = "Pendente";
+          this.Envio = Envio;
+          this.Frete = this.Envio.CalcularFrete(produto.Valor);
+      }
+
       public ItemVenda(float frete, string status, int quantidade, Envio envio){
           this.frete = frete;
           this.status = status;
           this.quantidade = quantidade;
           this.envio = envio;
       }
-      
   }
 }
