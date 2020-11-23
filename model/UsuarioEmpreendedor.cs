@@ -24,13 +24,20 @@ namespace MPL.model
           set { estoque = value; }
       }
       
-      public UsuarioEmpreendedor(){}
+      public UsuarioEmpreendedor(){
+        this.Estoque = new List<ItemEstoque>();
+      }
+
+      public void ArmazenarNoEstoque(ItemEstoque item){
+        this.Estoque.Add(item);
+      }
 
       public UsuarioEmpreendedor(string cnpj,string nome, string login, string senha){
         this.cnpj = cnpj;
         this.nome = nome;
         this.login = login;
         this.senha = senha;
+        this.Estoque = new List<ItemEstoque>();
       }
       
   }
