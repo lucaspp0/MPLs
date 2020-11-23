@@ -23,7 +23,7 @@ public class LoginScreen : IScreen
 
       if (MainViewManager.CurrentUser is UsuarioConsumidor) MainViewManager.ChangeScreen(new MenuConsumidorScreen());
       else if (MainViewManager.CurrentUser is UsuarioEmpreendedor) MainViewManager.ChangeScreen(new MenuEmpreendedorScreen());
-      else if (MainViewManager.CurrentUser is ContaTransportador) MainViewManager.ChangeScreen(new MenuTransportadorScreen());
+      else if (MainViewManager.CurrentUser is ContaTransportadora) MainViewManager.ChangeScreen(new MenuTransportadorScreen());
       else
       {
         ShowScreen("Tipo de usuário não encontrado");

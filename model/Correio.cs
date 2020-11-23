@@ -1,6 +1,6 @@
 namespace MPL.model
 {
-    public class Correio : ABaseModel
+    public class Correio : Envio
   {
       private bool documento;
       public bool Documento
@@ -8,7 +8,7 @@ namespace MPL.model
           get { return documento; }
           set { documento = value; }
       }
-      public Correio(bool documento, float valorFreteGratis):base(valorFreteGratis){
+      public Correio(bool documento, float valorFreteGratis) : base(valorFreteGratis){
           this.documento = documento;
       }
       

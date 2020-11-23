@@ -17,7 +17,7 @@ namespace MPL.teste.repository
     }
 
     [Fact]
-    public  void ShouldSaveTheUser()
+    public void ShouldSaveTheUser()
     {
       init();
       UsuarioConsumidor user = new UsuarioConsumidor();

@@ -3,9 +3,9 @@ using MPL.model;
 
 namespace MPL.repository.impl
 {
-  public class TransportRepositoryImpl : BaseRepository<ContaTransportador> , ITransportadorRepository
+  public class TransportRepositoryImpl : BaseRepository<ContaTransportadora> , ITransportadorRepository
   {
-      public TransportRepositoryImpl(List<ContaTransportador> ListObj) : base(ListObj){
+      public TransportRepositoryImpl(List<ContaTransportadora> ListObj) : base(ListObj){
       
       }
 

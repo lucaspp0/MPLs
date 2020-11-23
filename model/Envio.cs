@@ -1,6 +1,6 @@
 namespace MPL.model
 {
-  abstract class Envio : ABaseModel
+  public abstract class Envio : ABaseModel
   {
       private float valorFreteGratis;
       public float ValorFreteGratis

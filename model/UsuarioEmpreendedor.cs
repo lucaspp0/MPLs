@@ -24,6 +24,7 @@ namespace MPL.model
           set { estoque = value; }
       }
       
+      public UsuarioEmpreendedor(){}
 
       public UsuarioEmpreendedor(string cnpj,string nome, string login, string senha){
         this.cnpj = cnpj;

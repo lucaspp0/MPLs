@@ -22,8 +22,8 @@ namespace MPL.repository.impl
       set { usuarioConsumidor = value; } 
     }
 
-    private List<ContaTransportador> contaTransportador = new List<ContaTransportador>();
-    public List<ContaTransportador> ContaTransportador { 
+    private List<ContaTransportadora> contaTransportador = new List<ContaTransportadora>();
+    public List<ContaTransportadora> ContaTransportador { 
       get { return contaTransportador; } 
       set { contaTransportador = value; } 
     }
