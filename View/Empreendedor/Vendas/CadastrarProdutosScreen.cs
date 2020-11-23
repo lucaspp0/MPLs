@@ -26,10 +26,11 @@ Digite a opção: ");
           int estoqueQtde = int.Parse(GetInput("Digite quantos deste produto deseja adicionar ao estoque: "));
           string endereco = GetInput("Digite o endereço onde será estocado o produto: ");
           Injector.ClienteEmpreenderController.CadastrarProdutoEstoque(nome,peso, valor,categoria,estoqueQtde,endereco);
+          MainViewManager.ChangeScreen(new MenuEmpreendedorScreen());
         }else if(result == "2"){
-
+          
         }else if(result == "3"){
-
+          MainViewManager.logout();
         }
 
         string login = GetInput("");
