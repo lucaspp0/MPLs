@@ -33,6 +33,11 @@ namespace MPL.repository.impl
       get { return usuarioEmpreender; } 
       set { usuarioEmpreender = value; } 
     }
+    private List<ItemEstoque> itemEstoque = new List<ItemEstoque>();
+    public List<ItemEstoque> ItemEstoque { 
+      get { return itemEstoque; } 
+      set { itemEstoque = value; } 
+    }
 
   }
 

@@ -15,6 +15,8 @@ namespace MPL.utils
       public static IUserRepository IUserRepository;
       public static IUserEmpreendedorRepository IUserEmpreendedorRepository;
       public static ITransportadorRepository ITransportadorRepository;
+      public static IUserConsumidorRepository IUserConsumidorRepository;
+      public static IItemEstoqueRepository IItemEstoqueRepository;
 
       // Controllers
       public static ClientController ClientController;
@@ -26,6 +28,8 @@ namespace MPL.utils
         IUserRepository = new UserRepositoryImpl(DataBaseGod._DATABASE.UsuarioConsumidor);
         ITransportadorRepository = new TransportRepositoryImpl(DataBaseGod._DATABASE.ContaTransportador);
         IUserEmpreendedorRepository = new EmpreenderRepositoryImpl(DataBaseGod._DATABASE.UsuarioEmpreender);
+        IUserConsumidorRepository = new UserConsumidorRepositoryImpl(DataBaseGod._DATABASE.UsuarioConsumidor);
+        IItemEstoqueRepository = new ItemEstoqueRepositoryImpl(DataBaseGod._DATABASE.ItemEstoque);
 
         ClientController = new ClientController(IUserRepository, ITransportadorRepository, IUserEmpreendedorRepository);        
         ClienteEmpreenderController = new ClienteEmpreenderController(IUserEmpreendedorRepository);

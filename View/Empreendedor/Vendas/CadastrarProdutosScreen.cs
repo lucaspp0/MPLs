@@ -2,7 +2,7 @@ using System;
 using MPL.utils;
 using static MPL.utils.ViewUtils;
 using MPL.View.interfaces;
-using System.Threading.Tasks;
+
 
 namespace MPL.View.Empreendedor.Vendas
 {
