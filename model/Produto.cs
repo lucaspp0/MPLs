@@ -33,5 +33,16 @@ namespace MPL.model
           this.valor = valor;
           this.categoria = categoria;
       }
+
+    public override string ToString()
+    {
+        return $@"
+            Id: {this.Id}
+            Nome: {this.nome}
+            peso: {this.peso}
+            valor: {this.valor}
+            categoria: {this.categoria}
+          ";
+    }
   }
 }

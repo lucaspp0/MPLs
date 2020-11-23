@@ -8,11 +8,11 @@ using MPL.model;
 namespace MPL.View.Consumidor.produtos
 {
   
-  public class DetalheproutoScreen : IScreen
+  public class DetalheProutoScreen : IScreen
   {
 
     private Produto _produto;
-    public DetalheproutoScreen(Produto produto){
+    public DetalheProutoScreen(Produto produto){
       this._produto = produto;
     }
     public void Show()

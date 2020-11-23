@@ -19,6 +19,31 @@ namespace MPL.utils
       return Console.ReadLine().Trim();
       // return "1";
     }
+    
+    public static float GetInputFloat(string content = "")
+    {
+      if (!string.IsNullOrWhiteSpace(content)) Console.Write(content);
+      float resultFloat;
+      string resultStr = Console.ReadLine().Trim();
+      while(!float.TryParse(resultStr, out resultFloat)){
+        ShowScreen("Valor inválido, digite um valor decimal válido ");
+        resultStr = Console.ReadLine().Trim();
+      }
+      return resultFloat;
+    }
+    
+    public static int GetInputInt(string content = "")
+    {
+      
+      if (!string.IsNullOrWhiteSpace(content)) Console.Write(content);
+      int resultInt;
+      string resultStr = Console.ReadLine().Trim();
+      while(!int.TryParse(resultStr, out resultInt)){
+        ShowScreen("Valor inválido, digite um valor numérico válido ");
+        resultStr = Console.ReadLine().Trim();
+      }
+      return resultInt;
+    }
 
     public static void GetWaitingInput()
     {
