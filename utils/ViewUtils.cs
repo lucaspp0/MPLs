@@ -17,7 +17,6 @@ namespace MPL.utils
     {
       if (!string.IsNullOrWhiteSpace(content)) Console.Write(content);
       return Console.ReadLine().Trim();
-      // return "1";
     }
     
     public static float GetInputFloat(string content = "")

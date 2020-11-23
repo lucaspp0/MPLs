@@ -25,7 +25,8 @@ namespace MPL.View.Consumidor.produtos
 
     public void Show()
     {
-      ShowScreen(this._itemEstoque.Produto.ToString()+"Qtd. Estoque: "+this._itemEstoque.Quantidade);
+      ShowScreen($@"Detalhe do produto: 
+      {this._itemEstoque.Produto.ToString()}Qtd. Estoque: {this._itemEstoque.Quantidade}");
 
       int result = GetInputInt(@"
         Opções
@@ -62,8 +63,16 @@ Digite um valor válido, ou -1 para sair: ");
       if(quantidade == -1) {
         VoltarListagemProduto();
       }else{
+        if( !this._CarrinhoController.ExisteCarrinho((MainViewManager.CurrentUser as UsuarioConsumidor), this._itemEstoque.Produto) )
+          envio = SelecionarTipoEnvio();
+
         _CarrinhoController.AdicionarCarrinho(UsuarioConsumidor, this._itemEstoque.Produto, quantidade, envio);
       }
+    }
+
+    private Envio SelecionarTipoEnvio(){
+      // TODO Selecionar tipos de envio
+      return null;
     }
     
   }

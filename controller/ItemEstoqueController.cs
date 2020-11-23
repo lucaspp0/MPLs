@@ -12,6 +12,9 @@ namespace MPL.controller
   public class ItemEstoqueController
   {
     private IItemEstoqueRepository _IItemEstoqueRepository;
+
+    public bool Salvar(ItemEstoque itemEstoque) => _IItemEstoqueRepository.save(itemEstoque);
+
     public ItemEstoqueController(IItemEstoqueRepository IItemEstoqueRepository)
     {
       this._IItemEstoqueRepository = IItemEstoqueRepository;

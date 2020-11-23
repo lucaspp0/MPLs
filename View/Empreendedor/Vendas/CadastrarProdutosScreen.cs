@@ -4,13 +4,16 @@ using static MPL.utils.ViewUtils;
 using MPL.View.interfaces;
 using MPL.model;
 using System.Collections.Generic;
+using MPL.controller;
 
 namespace MPL.View.Empreendedor.Vendas
 {
     public class CadastrarProdutosScreen : IScreen
     {
 
-
+        private ProdutoController _ProdutoController;
+        private ItemEstoque _ItemEstoqueController;
+        
         public void Show()
         {
             UsuarioEmpreendedor usuario = (MainViewManager.CurrentUser as UsuarioEmpreendedor);
@@ -29,7 +32,19 @@ Digite a opção: ");
                 string categoria = GetInput("Descreva em qual categoria o produto se encaixa: ");
                 int estoqueQtde = GetInputInt("Digite quantos deste produto deseja adicionar ao estoque: ");
                 string endereco = GetInput("Digite o endereço onde será estocado o produto: ");
-                Injector.ClienteEmpreenderController.CadastrarProdutoEstoque(nome, peso, valor, categoria, estoqueQtde, endereco);
+
+                
+                UsuarioEmpreendedor usuarioLogado = (MainViewManager.CurrentUser as UsuarioEmpreendedor);
+                
+                Produto produto = new Produto(nome, peso, valor, categoria);
+                Injector.ProdutoController.Salvar(produto);
+                
+                ItemEstoque itensEstoque = new ItemEstoque(estoqueQtde, produto, endereco);
+                Injector.ItemEstoqueController.Salvar(itensEstoque);
+
+                usuarioLogado.ArmazenarNoEstoque(itensEstoque);
+                Injector.ClienteEmpreenderController.Salvar(usuarioLogado);
+
                 MainViewManager.ChangeScreen(new MenuEmpreendedorScreen());
             }
             else if (result == "2")
