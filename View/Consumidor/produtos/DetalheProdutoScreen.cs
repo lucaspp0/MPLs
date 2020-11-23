@@ -62,8 +62,16 @@ Digite um valor válido, ou -1 para sair: ");
       if(quantidade == -1) {
         VoltarListagemProduto();
       }else{
+        if( !this._CarrinhoController.ExisteCarrinho((MainViewManager.CurrentUser as UsuarioConsumidor), this._itemEstoque.Produto) )
+          envio = SelecionarTipoEnvio();
+
         _CarrinhoController.AdicionarCarrinho(UsuarioConsumidor, this._itemEstoque.Produto, quantidade, envio);
       }
+    }
+
+    private Envio SelecionarTipoEnvio(){
+      // TODO Selecionar tipos de envio
+      return null;
     }
     
   }

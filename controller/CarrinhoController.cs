@@ -20,10 +20,14 @@ namespace MPL.controller
       this._IItemVendaRepository = IItemVendaRepos;
     }
 
-    public bool ExisteCarrinho(UsuarioConsumidor usuario){
+    public bool ExisteCarrinho(UsuarioConsumidor usuario, Produto produto = null){
       Venda venda = this._IVendaRepository.selectAll()
                     .Where( x => !x.Finalizado && x.UsuarioConsumidory.Id == usuario.Id)
                     .FirstOrDefault();
+
+      if(venda != null && produto != null)
+       return venda.ItemVendas.Any( x => x.Produto.Id == produto.Id);
+       
       return venda != null;
     }
 
@@ -31,10 +35,12 @@ namespace MPL.controller
       Venda venda = this._IVendaRepository.GetCarrinho(usuario);
       ItemVenda ItemVenda = venda.ItemVendas.Where( x => x.Produto.Id == produto.Id).FirstOrDefault();
       if(ItemVenda == null){
+
+        if(envio == null) envio = new Correio(false, 50);
         ItemVenda = new ItemVenda(produto: produto, Quantidade: quantidade, Envio: envio);
-      }else{
-        ItemVenda.Quantidade += quantidade;
-      }
+        
+      }else ItemVenda.Quantidade += quantidade;
+
       return this._IItemVendaRepository.save(ItemVenda);
     }
     

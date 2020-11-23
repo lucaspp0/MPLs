@@ -13,6 +13,8 @@ namespace MPL.View.Empreendedor
     {
       
       string result = GetInput($@"
+      Área do Empreendedor
+
       1 - Visualizar Vendas
       2 - Visualizar produtos
       3 - Cadastrar produtos
