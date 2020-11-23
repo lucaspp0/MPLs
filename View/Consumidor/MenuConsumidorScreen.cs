@@ -21,11 +21,11 @@ namespace MPL.View.Consumidor
 Digite a opção: ");
 
       if(result == "1"){
-        new MenuCompraScreen().Show();
+        MainViewManager.ChangeScreen(new MenuCompraScreen());
       }else if(result == "2"){
-        new ListagemProdutosScreen().Show();
+        MainViewManager.ChangeScreen(new ListagemProdutosScreen());
       }else if(result == "3"){
-        new MenuCarrinhoScreen().Show();
+        MainViewManager.ChangeScreen(new MenuCarrinhoScreen());
       }else if(result == "4"){
         MainViewManager.logout();
       }else{
