@@ -6,7 +6,6 @@ using MPL.View;
 using MPL.model;
 using MPL.repository;
 
-
 namespace MPL.controller
 {
      public class ClienteEmpreenderController
@@ -27,7 +26,7 @@ namespace MPL.controller
         
         }
 
-        public  bool RegisterClienteEmpreende(string nome,string login,string senha,string cnpj){
+        public bool RegisterClienteEmpreende(string nome,string login,string senha,string cnpj){
            UsuarioEmpreendedor user = new UsuarioEmpreendedor();
            user.Cnpj = cnpj;
            user.Login = login;
@@ -41,6 +40,8 @@ namespace MPL.controller
 
         public void CadastrarProdutoEstoque(string nome,float peso, float valor,string categoria,int estoqueQtde,string endereco){
             Produto produto = new Produto(nome,peso,valor,categoria);
+            ItemEstoque itensEstoque = new ItemEstoque(estoqueQtde,produto,endereco);
+            
 
         }
 
