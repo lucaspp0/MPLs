@@ -37,6 +37,7 @@ Selecione uma das opções acima: ");
       {
           case 1:
             AdicionarAoCarrinho();
+            MainViewManager.ChangeScreen(new MenuConsumidorScreen());
             break;
           case 2:
             VoltarListagemProduto();
