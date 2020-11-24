@@ -4,7 +4,6 @@ using static MPL.utils.ViewUtils;
 using MPL.View.interfaces;
 using MPL.model;
 using MPL.utils;
-using System.Linq;
 
 namespace MPL.View.Consumidor.vendas
 {
@@ -27,6 +26,11 @@ namespace MPL.View.Consumidor.vendas
         return;
       }else{
         venda = Injector.CarrinhoController.Getcarrinho(usuarioConsumidor);
+        if(venda.ItemVendas.Count == 0){
+          ShowScreen("Nenhum produto encontrado no carrinho");
+          GetWaitingInput();
+          VoltarMenuConsumidor();
+        }
       }
 
       string result = GetInput($@"
@@ -42,8 +46,7 @@ Digite a opção: ");
 
           if( Injector.VendaController.FinalizarVenda(venda) )
             ShowScreen("Venda realizada com sucesso"); 
-          else
-            ShowScreen("Ocorreu um erro ao realizar a venda");
+          else ShowScreen("Ocorreu um erro ao realizar a venda");
 
           GetWaitingInput();
 
@@ -52,16 +55,17 @@ Digite a opção: ");
         }
 
         GetWaitingInput();
+
       }else if(result == "2"){
+
         int id = GetInputInt("Selecione o id do produto: ");
 
         if(venda.ItemVendas.RemoveAll( x => x.Produto.Id == id ) > 0){
 
           Injector.VendaController.RemoverItemVenda(id);
-          // Injector.IItemVendaRepository.delete(id);
           Injector.VendaController.SalvarVenda(venda);
-          // Injector.IVendaRepository.save(venda);
-
+          ShowScreen("Produto removido com sucesso");
+  
         }else{
           ShowScreen("Não existe produto com esse ID");
         }
@@ -74,6 +78,7 @@ Digite a opção: ");
         ShowScreen("Escolha inválida");
         GetWaitingInput();
       }
+
     }
   }
 }

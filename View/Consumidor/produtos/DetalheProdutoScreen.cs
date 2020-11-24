@@ -56,7 +56,7 @@ Selecione uma das opções acima: ");
       UsuarioConsumidor UsuarioConsumidor = (MainViewManager.CurrentUser as UsuarioConsumidor);
       Envio envio = null;
       int quantidade = GetInputInt("Digite a quantidade que deseja comprar, ou -1 para sair: ");
-      while(quantidade != -1 && quantidade >= this._itemEstoque.Quantidade){
+      while(quantidade != -1 && quantidade > this._itemEstoque.Quantidade){
         quantidade = GetInputInt(@"quantidade maior que o estoque permitido
 Digite um valor válido, ou -1 para sair: ");
         }

@@ -53,8 +53,8 @@ namespace MPL.repository.impl
 
     private List<ContaTransportadora> contaTransportadora = new List<ContaTransportadora>();
     public List<ContaTransportadora> ContaTransportadora { 
-      get { return ContaTransportadora; } 
-      set { ContaTransportadora = value; } 
+      get { return contaTransportadora; } 
+      set { contaTransportadora = value; } 
     }
 
   }
