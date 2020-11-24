@@ -30,6 +30,12 @@ namespace MPL.View.Consumidor.vendas
           ShowScreen("Nenhum produto encontrado no carrinho");
           GetWaitingInput();
           VoltarMenuConsumidor();
+        }else{
+          venda.ItemVendas.ForEach( itemVenda => {
+            ShowScreen($@"produto: \n {itemVenda.Produto.ToString()}
+            Quantidade: {itemVenda.Quantidade}
+            Status: {itemVenda.Status}");
+          } );
         }
       }
 

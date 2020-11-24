@@ -4,7 +4,7 @@ namespace MPL.model
   public class Venda : ABaseModel
   {
       private UsuarioConsumidor usuarioConsumidor;
-      public UsuarioConsumidor UsuarioConsumidory
+      public UsuarioConsumidor suarioConsumidor
       {
           get { return usuarioConsumidor; }
           set { usuarioConsumidor = value; }
@@ -32,11 +32,11 @@ namespace MPL.model
       
       public Venda(UsuarioConsumidor usuarioConsumidor, string endereco){
           this.endereco = endereco;
-          this.UsuarioConsumidory = usuarioConsumidor;
+          this.suarioConsumidor = usuarioConsumidor;
       }
       public Venda(){}
       public Venda(UsuarioConsumidor usuarioConsumidor){
-          this.UsuarioConsumidory = usuarioConsumidor;
+          this.suarioConsumidor = usuarioConsumidor;
       }
       
   }

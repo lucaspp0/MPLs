@@ -2,7 +2,9 @@ using System;
 
 using static MPL.utils.ViewUtils;
 using MPL.View.interfaces;
-
+using MPL.model;
+using MPL.utils;
+using System.Collections.Generic;
 
 namespace MPL.View.Transportador
 {
@@ -10,7 +12,9 @@ namespace MPL.View.Transportador
   {
     public  void Show()
     {
-      ShowScreen("Mostrar Lista de venda");
+      ShowScreen("Todos Itens pendentes");
+      List<ItemVenda> ItensVendas = Injector.VendaController.GetAllItensPendente();
+      ItensVendas.ForEach( x => ShowScreen(x.ToString()) );
     }
   }
 }

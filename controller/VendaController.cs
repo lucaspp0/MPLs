@@ -25,6 +25,9 @@ namespace MPL.controller
       this._IItemEstoqueRepository = IItemEstoqueRepository;
     }
 
+    public List<ItemVenda> GetAllItensPendente() =>
+      this._IItemVendaRepository.selectAll().FindAll( x => x.Status.ToLower().Contains("pendenter"));
+
     public bool SalvarVenda(Venda venda) => this._IVendaRepository.save(venda);
 
     public bool RemoverItemVenda(int idItemVenda) =>

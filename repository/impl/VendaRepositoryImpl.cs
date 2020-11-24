@@ -9,10 +9,10 @@ namespace MPL.repository.impl
       public VendaRepositoryImpl(List<Venda> ListObj) : base(ListObj){ }
 
       public List<Venda> GetVendas(UsuarioConsumidor usuarioConsumidor) =>
-        selectAll().FindAll( x => x.Finalizado && x.UsuarioConsumidory.Id == usuarioConsumidor.Id);
+        selectAll().FindAll( x => x.Finalizado && x.suarioConsumidor.Id == usuarioConsumidor.Id);
 
       public Venda GetCarrinho(UsuarioConsumidor usuarioConsumidor){
-        Venda venda = selectAll().Where( x => !x.Finalizado && x.UsuarioConsumidory.Id == usuarioConsumidor.Id).FirstOrDefault();
+        Venda venda = selectAll().Where( x => !x.Finalizado && x.suarioConsumidor.Id == usuarioConsumidor.Id).FirstOrDefault();
         if(venda == null){
           venda = new Venda(usuarioConsumidor);
           venda.Finalizado = false;
