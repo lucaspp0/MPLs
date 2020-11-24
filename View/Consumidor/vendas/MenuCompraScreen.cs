@@ -22,8 +22,13 @@ namespace MPL.View.Consumidor.vendas
       //ClientController = new ClientController(IUserRepository, ITransportadorRepository, IUserEmpreendedorRepository); 
       List<Venda> listProdutcs = Injector.ClientController.returnBuyProducts();
 
-      
-      listProdutcs.ForEach(x => ShowScreen($"depois eu falo com ela {x}") );
+      foreach (var x in listProdutcs)
+      {
+        ShowScreen($"{x.Endereco} - {x.Finalizado}");          
+        x.ItemVendas.ForEach(item => ShowScreen($"{item.Produto.Nome}\n{item.Quantidade}\n{item.Frete}"));
+      }
+
+      //listProdutcs.ForEach(x => ShowScreen($"depois eu falo com ela {x}") );
         
       
       GetWaitingInput();
