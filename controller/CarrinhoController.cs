@@ -22,7 +22,7 @@ namespace MPL.controller
 
     public bool ExisteCarrinho(UsuarioConsumidor usuario, Produto produto = null){
       Venda venda = this._IVendaRepository.selectAll()
-                    .Where( x => !x.Finalizado && x.suarioConsumidor.Id == usuario.Id)
+                    .Where( x => !x.Finalizado && x.UsuarioConsumidor.Id == usuario.Id)
                     .FirstOrDefault();
 
       if(venda != null && produto != null)

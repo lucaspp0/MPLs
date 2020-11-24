@@ -17,15 +17,15 @@ namespace MPL.View.Consumidor.vendas
     {
       Venda venda = null;
       ShowScreen("Mostrar Todos Itens");
-      UsuarioConsumidor usuarioConsumidor = MainViewManager.CurrentUser as UsuarioConsumidor;
+      UsuarioConsumidor UsuarioConsumidor = MainViewManager.CurrentUser as UsuarioConsumidor;
 
-      if(!Injector.CarrinhoController.ExisteCarrinho(usuarioConsumidor)){
+      if(!Injector.CarrinhoController.ExisteCarrinho(UsuarioConsumidor)){
         ShowScreen("Nenhum produto encontrado no carrinho");
         GetWaitingInput();
         VoltarMenuConsumidor();
         return;
       }else{
-        venda = Injector.CarrinhoController.Getcarrinho(usuarioConsumidor);
+        venda = Injector.CarrinhoController.Getcarrinho(UsuarioConsumidor);
         if(venda.ItemVendas.Count == 0){
           ShowScreen("Nenhum produto encontrado no carrinho");
           GetWaitingInput();
@@ -48,7 +48,7 @@ Digite a opção: ");
       
       if(result == "1"){
 
-        if(Injector.CarrinhoController.ExisteCarrinho(usuarioConsumidor)){
+        if(Injector.CarrinhoController.ExisteCarrinho(UsuarioConsumidor)){
 
           if( Injector.VendaController.FinalizarVenda(venda) )
             ShowScreen("Venda realizada com sucesso"); 
