@@ -30,8 +30,6 @@ Digite a opção: ");
       }else if(result == "3"){
         MainViewManager.ChangeScreen(new CadastrarProdutosScreen());
       }else if(result == "4"){
-        MainViewManager.ChangeScreen(new DeletarProdutosScreen());
-      }else if(result == "5"){
         MainViewManager.logout();
       }else{
         ShowScreen("Escolha inválida");
