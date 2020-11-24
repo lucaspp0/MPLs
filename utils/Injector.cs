@@ -46,7 +46,8 @@ namespace MPL.utils
       IContaTransportadoraRepository = new ContaTransportadoraRepositoryImpl(DataBaseGod._DATABASE.ContaTransportadora);
 
       // Controller
-      ClientController = new ClientController(IUserRepository, IContaTransportadoraRepository, IUserEmpreendedorRepository);
+
+      ClientController = new ClientController(IUserRepository, IContaTransportadoraRepository, IUserEmpreendedorRepository,IVendaRepository,IItemVendaRepository);
       ClienteEmpreenderController = new ClienteEmpreenderController(IUserEmpreendedorRepository);
       ClienteConsumidorController = new ClienteConsumidorController(IUserRepository);
       CarrinhoController = new CarrinhoController(IVendaRepository, IItemVendaRepository);

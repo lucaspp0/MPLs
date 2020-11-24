@@ -2,6 +2,8 @@ using System.Collections.Generic;
 
 using System;
 using MPL.View;
+using MPL.utils;
+using static MPL.utils.ViewUtils;
 using MPL.model;
 using MPL.repository;
 
@@ -13,13 +15,18 @@ namespace MPL.controller
   {
     IUserRepository _IUserRepository;
     IUserEmpreendedorRepository _IUserEmpreendedorRepository;
-    IContaTransportadoraRepository _ITransportadorRepository;
 
-    public ClientController(IUserRepository IUserRepository, IContaTransportadoraRepository ITransportadorRepository, IUserEmpreendedorRepository IUserEmpreendedorRepository)
+    IContaTransportadoraRepository _ITransportadorRepository;
+    private IVendaRepository _IVendaRepository;
+    private IItemVendaRepository _IItemVendaRepository;
+
+    public ClientController(IUserRepository IUserRepository, IContaTransportadoraRepository ITransportadorRepository, IUserEmpreendedorRepository IUserEmpreendedorRepository,IVendaRepository IVendaRepository, IItemVendaRepository IItemVendaRepos)
     {
       _IUserRepository = IUserRepository;
       _IUserEmpreendedorRepository = IUserEmpreendedorRepository;
       _ITransportadorRepository = ITransportadorRepository;
+      _IItemVendaRepository = IItemVendaRepos;
+      _IVendaRepository = IVendaRepository;
 
     }
 
@@ -46,6 +53,12 @@ namespace MPL.controller
 
       MainViewManager.CurrentUser = pessoaEncontrada;
       return pessoaEncontrada != null;
+    }
+
+    public List<Venda> returnBuyProducts(){      
+      List<Venda> list = _IVendaRepository.GetVendas(MainViewManager.CurrentUser as UsuarioConsumidor);
+
+      return list;
     }
   }
 
