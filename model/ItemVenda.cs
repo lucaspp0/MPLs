@@ -60,6 +60,9 @@ namespace MPL.model
         Status:     {this.Status}
       ";
     }
+    public static double operator +(ItemVenda item1, double valor){
+          return (item1.Quantidade * item1.Produto.Valor) + valor;
+      }
 
   }
 }
