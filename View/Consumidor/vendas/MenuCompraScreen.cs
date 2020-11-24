@@ -17,15 +17,14 @@ namespace MPL.View.Consumidor.vendas
     public void Show()
     {
       
-      ShowScreen("------comprars do usuario------");
-      
-      //ClientController = new ClientController(IUserRepository, ITransportadorRepository, IUserEmpreendedorRepository); 
+      ShowScreen("------compras do usuario------");
+       
       List<Venda> listProdutcs = Injector.ClientController.returnBuyProducts();
 
       foreach (var x in listProdutcs)
       {
-        ShowScreen($"{x.Endereco} - {x.Finalizado}");          
-        x.ItemVendas.ForEach(item => ShowScreen($"{item.Produto.Nome}\n{item.Quantidade}\n{item.Frete}"));
+        ShowScreen($"local de saída {x.Endereco}");          
+        x.ItemVendas.ForEach(item => ShowScreen($"Nome do produto: {item.Produto.Nome} || Quantidade comprada: {item.Quantidade} || Valor do frete: R${item.Frete}"));
       }
 
       //listProdutcs.ForEach(x => ShowScreen($"depois eu falo com ela {x}") );
