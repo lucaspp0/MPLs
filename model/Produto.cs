@@ -27,6 +27,8 @@ namespace MPL.model
           get { return categoria; }
           set { categoria = value; }
       }
+
+      public Produto(){}
       public Produto(string nome,float peso, float valor, string categoria){
           this.nome = nome;
           this.peso = peso;

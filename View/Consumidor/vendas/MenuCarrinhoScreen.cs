@@ -4,36 +4,72 @@ using static MPL.utils.ViewUtils;
 using MPL.View.interfaces;
 using MPL.model;
 using MPL.utils;
+using System.Linq;
 
 namespace MPL.View.Consumidor.vendas
 {
   public class MenuCarrinhoScreen : IScreen
   {
-    public  void Show()
+
+    public void VoltarMenuConsumidor() => 
+      MainViewManager.ChangeScreen( new MenuConsumidorScreen() );
+
+    public void Show()
     {
-      
+      Venda venda = null;
+      ShowScreen("Mostrar Todos Itens");
+      UsuarioConsumidor usuarioConsumidor = MainViewManager.CurrentUser as UsuarioConsumidor;
+
+      if(!Injector.CarrinhoController.ExisteCarrinho(usuarioConsumidor)){
+        ShowScreen("Nenhum produto encontrado no carrinho");
+        GetWaitingInput();
+        VoltarMenuConsumidor();
+        return;
+      }else{
+        venda = Injector.CarrinhoController.Getcarrinho(usuarioConsumidor);
+      }
+
       string result = GetInput($@"
-      1 - Realizar Compra
+      1 - Finalizar Compra
       2 - Remover Produto
-      5 - Sair
+      3 - Sair
 
 Digite a opção: ");
-      UsuarioConsumidor usuarioConsumidor = MainViewManager.CurrentUser as UsuarioConsumidor;
+      
       if(result == "1"){
 
         if(Injector.CarrinhoController.ExisteCarrinho(usuarioConsumidor)){
-          
+
+          if( Injector.VendaController.FinalizarVenda(venda) )
+            ShowScreen("Venda realizada com sucesso"); 
+          else
+            ShowScreen("Ocorreu um erro ao realizar a venda");
+
+          GetWaitingInput();
+
         }else{
           ShowScreen("Carrinho Vázio");
         }
 
         GetWaitingInput();
       }else if(result == "2"){
-        result = GetInput("Selecione o id do produot: ");
-        ShowScreen($"produto {result} selecionado para remoção");
+        int id = GetInputInt("Selecione o id do produto: ");
+
+        if(venda.ItemVendas.RemoveAll( x => x.Produto.Id == id ) > 0){
+
+          Injector.VendaController.RemoverItemVenda(id);
+          // Injector.IItemVendaRepository.delete(id);
+          Injector.VendaController.SalvarVenda(venda);
+          // Injector.IVendaRepository.save(venda);
+
+        }else{
+          ShowScreen("Não existe produto com esse ID");
+        }
+
         GetWaitingInput();
+
       }else if(result == "3"){
-        MainViewManager.ChangeScreen( new MenuConsumidorScreen() );
+        VoltarMenuConsumidor();
       }else{
         ShowScreen("Escolha inválida");
         GetWaitingInput();

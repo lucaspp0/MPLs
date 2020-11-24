@@ -21,7 +21,6 @@ namespace MPL.controller
         public ClienteEmpreenderController(IUserEmpreendedorRepository IUserEmpreendedorRepository)
         {
             _IUserEmpreendedorRepository = IUserEmpreendedorRepository;
-
         }
 
         public void SelecionarProduto(int idProduto)
