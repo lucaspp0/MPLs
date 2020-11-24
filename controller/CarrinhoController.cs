@@ -45,6 +45,16 @@ namespace MPL.controller
 
       return this._IVendaRepository.save(venda) && this._IItemVendaRepository.save(ItemVenda);
     }
+
+    public double GerarTotal(UsuarioConsumidor usuario){
+      Venda venda = this._IVendaRepository.GetCarrinho(usuario);
+      double total = 0;
+      foreach(var itemVenda in venda.ItemVendas){ 
+        total += itemVenda + total;
+      }
+      return total;
+
+    }
     
   }
 

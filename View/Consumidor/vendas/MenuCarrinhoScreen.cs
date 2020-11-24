@@ -38,6 +38,7 @@ namespace MPL.View.Consumidor.vendas
           } );
         }
       }
+      ShowScreen("Total da compra: "+Injector.CarrinhoController.GerarTotal(UsuarioConsumidor));
 
       string result = GetInput($@"
       1 - Finalizar Compra
