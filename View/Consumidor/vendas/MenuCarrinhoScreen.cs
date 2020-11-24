@@ -16,7 +16,6 @@ namespace MPL.View.Consumidor.vendas
     public void Show()
     {
       Venda venda = null;
-      ShowScreen("Mostrar Todos Itens");
       UsuarioConsumidor UsuarioConsumidor = MainViewManager.CurrentUser as UsuarioConsumidor;
 
       if(!Injector.CarrinhoController.ExisteCarrinho(UsuarioConsumidor)){
@@ -30,6 +29,7 @@ namespace MPL.View.Consumidor.vendas
           ShowScreen("Nenhum produto encontrado no carrinho");
           GetWaitingInput();
           VoltarMenuConsumidor();
+          return;
         }else{
           venda.ItemVendas.ForEach( itemVenda => {
             ShowScreen($@"produto: \n {itemVenda.Produto.ToString()}
@@ -55,8 +55,6 @@ Digite a opção: ");
             ShowScreen("Venda realizada com sucesso"); 
           else ShowScreen("Ocorreu um erro ao realizar a venda");
 
-          GetWaitingInput();
-
         }else{
           ShowScreen("Carrinho Vázio");
         }
@@ -77,14 +75,13 @@ Digite a opção: ");
           ShowScreen("Não existe produto com esse ID");
         }
 
-        GetWaitingInput();
-
       }else if(result == "3"){
         VoltarMenuConsumidor();
       }else{
         ShowScreen("Escolha inválida");
-        GetWaitingInput();
       }
+
+      GetWaitingInput();
 
     }
   }

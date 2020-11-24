@@ -14,8 +14,6 @@ namespace MPL.controller
     IItemVendaRepository _IItemVendaRepository;
     IItemEstoqueRepository _IItemEstoqueRepository;
 
-    CarrinhoController _CarrinhoController;
-
     public VendaController(IVendaRepository IVendaRepository,
                             IItemVendaRepository IItemVendaRepository,
                             IItemEstoqueRepository IItemEstoqueRepository)
