@@ -12,7 +12,7 @@ namespace MPL.View.Transportador
   {
     public  void Show()
     {
-      ShowScreen("Todos Itens pendentes");
+      ShowScreen("Todos os Itens pendentes");
       List<ItemVenda> ItensVendas = Injector.VendaController.GetAllItensPendente();
       ItensVendas.ForEach( x => ShowScreen(x.ToString()) );
     }

@@ -38,7 +38,7 @@ namespace MPL.View.Consumidor.vendas
           } );
         }
       }
-      ShowScreen("Total da compra: "+Injector.CarrinhoController.GerarTotal(UsuarioConsumidor));
+      ShowScreen("Total da Compra: "+Injector.CarrinhoController.GerarTotal(UsuarioConsumidor));
 
       string result = GetInput($@"
       1 - Finalizar Compra
@@ -56,14 +56,14 @@ Digite a opção: ");
           else ShowScreen("Ocorreu um erro ao realizar a venda");
 
         }else{
-          ShowScreen("Carrinho Vázio");
+          ShowScreen("Carrinho Vázio!");
         }
 
         GetWaitingInput();
 
       }else if(result == "2"){
 
-        int id = GetInputInt("Selecione o id do produto: ");
+        int id = GetInputInt("Selecione o ID do produto: ");
 
         if(venda.ItemVendas.RemoveAll( x => x.Produto.Id == id ) > 0){
 

@@ -17,7 +17,7 @@ namespace MPL.View.Consumidor.vendas
     public void Show()
     {
       
-      ShowScreen("------compras do usuario------");
+      ShowScreen("------Compras do Usuário------");
        
       List<Venda> listProdutcs = Injector.ClientController.returnBuyProducts();
 

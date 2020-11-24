@@ -15,9 +15,9 @@ namespace MPL.View.Empreendedor.Vendas
         {
             UsuarioEmpreendedor usuario = (MainViewManager.CurrentUser as UsuarioEmpreendedor);
             string result = GetInput($@"
-      1 - Adicionar um novo produto ao estoque
-      2 - Adicionar um produto já cadastrado ao estoque
-      3 - Sair
+      1 - Adicionar um novo produto ao estoque.
+      2 - Adicionar um produto já cadastrado ao estoque.
+      3 - Sair.
 
 Digite a opção: ");
 

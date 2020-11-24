@@ -11,8 +11,8 @@ namespace MPL.View.Transportador
     public  void Show()
     {
       string result = GetInput($@"
-      1 - Alterar Status Venda
-      2 - Sair
+      1 - Alterar Status Venda.
+      2 - Sair.
   Digite a opção: ");
 
       if(result == "1"){
