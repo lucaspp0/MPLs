@@ -33,19 +33,19 @@ namespace MPL.controller
     private Pessoa FilterUser(List<Pessoa> pessoas, string senha, string login)
     {
       return pessoas
-        .Where(usuarioConsumidor => usuarioConsumidor.Senha == senha && usuarioConsumidor.Login == login)
+        .Where(UsuarioConsumidor => UsuarioConsumidor.Senha == senha && UsuarioConsumidor.Login == login)
         .FirstOrDefault();
     }
 
     public  bool Login(string login, string senha)
     {
-      Pessoa usuarioConsumidor = FilterUser((_IUserRepository.selectAll()).Select(x => (Pessoa)x).ToList(), senha, login);
+      Pessoa UsuarioConsumidor = FilterUser((_IUserRepository.selectAll()).Select(x => (Pessoa)x).ToList(), senha, login);
 
       Pessoa usuarioEmpreendedor = FilterUser((_IUserEmpreendedorRepository.selectAll()).Select(x => (Pessoa)x).ToList(), senha, login);
 
       Pessoa usuarioTransportador = FilterUser((_ITransportadorRepository.selectAll()).Select(x => (Pessoa)x).ToList(), senha, login);
 
-      List<Pessoa> listaPessoas = new List<Pessoa>() { usuarioConsumidor, usuarioEmpreendedor, usuarioTransportador };
+      List<Pessoa> listaPessoas = new List<Pessoa>() { UsuarioConsumidor, usuarioEmpreendedor, usuarioTransportador };
 
       Pessoa pessoaEncontrada = listaPessoas
         .Where(pessoa => pessoa != null)

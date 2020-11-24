@@ -16,8 +16,7 @@ namespace MPL.View.Consumidor
       1 - Visualizar Compras
       2 - Procurar produtos
       3 - Visualizar Carrinho
-      4 - finalizar Compra
-      5 - Sair
+      4 - Sair
 
 Digite a opção: ");
 
@@ -28,8 +27,6 @@ Digite a opção: ");
       }else if(result == "3"){
         MainViewManager.ChangeScreen(new MenuCarrinhoScreen());
       }else if(result == "4"){
-        MainViewManager.ChangeScreen(new MenuCarrinhoScreen());
-      }else if(result == "5"){
         MainViewManager.logout();
       }else{
         ShowScreen("Escolha inválida");

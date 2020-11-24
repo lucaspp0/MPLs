@@ -8,10 +8,12 @@ namespace MPL.model
           get { return valorFreteGratis; }
           set { valorFreteGratis = value; }
       }
+      
+      public Envio(){ }
+
       public Envio(float valorFreteGratis){
         this.valorFreteGratis = valorFreteGratis;
       }
-      public Envio(){ }
       
       public virtual float CalcularFrete(float ValorProduto){
         if(ValorProduto <= ValorFreteGratis) return 0;

@@ -22,7 +22,7 @@ namespace MPL.controller
         public  void SelecionarProduto(int idProduto)
         {
 
-            List<UsuarioConsumidor> usuarioConsumidorList = (_IUserRepository.selectAll());
+            List<UsuarioConsumidor> UsuarioConsumidorList = (_IUserRepository.selectAll());
         
         }
 
@@ -49,7 +49,7 @@ namespace MPL.controller
     private Pessoa FilterUser(List<Pessoa> pessoas, string senha, string login)
     {
       return pessoas
-        .Where(usuarioConsumidor => usuarioConsumidor.Senha == senha && usuarioConsumidor.Login == login)
+        .Where(UsuarioConsumidor => UsuarioConsumidor.Senha == senha && UsuarioConsumidor.Login == login)
         .FirstOrDefault();
     }
 

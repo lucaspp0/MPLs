@@ -54,6 +54,7 @@ namespace MPL.utils
       ItemEstoqueController = new ItemEstoqueController(IItemEstoqueRepository);
       ProdutoController = new ProdutoController(IProdutoRepository);
       ClienteTransportadorController = new ClienteTransportadorController(IContaTransportadoraRepository);
+      VendaController = new VendaController(IVendaRepository, IItemVendaRepository, IItemEstoqueRepository);
 
     }
   }

@@ -6,6 +6,7 @@ using MPL.model;
 using MPL.utils;
 using MPL.View.interfaces;
 using MPL.controller;
+using System.Linq;
 
 namespace MPL.View.Consumidor.produtos
 {
@@ -66,8 +67,9 @@ Digite um valor válido, ou -1 para sair: ");
       }else{
         if( !this._CarrinhoController.ExisteCarrinho((MainViewManager.CurrentUser as UsuarioConsumidor), this._itemEstoque.Produto) )
           envio = SelecionarTipoEnvio();
-
-        _CarrinhoController.AdicionarCarrinho(UsuarioConsumidor, this._itemEstoque.Produto, quantidade, envio);
+        UsuarioEmpreendedor usuarioEmpreendedor = Injector.IUserEmpreendedorRepository.selectAll()
+            .Where( x => x.Estoque.Any( estoque => estoque.Id == this._itemEstoque.Id) ).FirstOrDefault();
+        _CarrinhoController.AdicionarCarrinho(UsuarioConsumidor, this._itemEstoque.Produto, quantidade, usuarioEmpreendedor, envio);
       }
     }
 

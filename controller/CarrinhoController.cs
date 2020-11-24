@@ -22,7 +22,7 @@ namespace MPL.controller
 
     public bool ExisteCarrinho(UsuarioConsumidor usuario, Produto produto = null){
       Venda venda = this._IVendaRepository.selectAll()
-                    .Where( x => !x.Finalizado && x.UsuarioConsumidory.Id == usuario.Id)
+                    .Where( x => !x.Finalizado && x.UsuarioConsumidor.Id == usuario.Id)
                     .FirstOrDefault();
 
       if(venda != null && produto != null)
@@ -33,17 +33,17 @@ namespace MPL.controller
 
     public Venda Getcarrinho(UsuarioConsumidor usuario) => this._IVendaRepository.GetCarrinho(usuario);
 
-    public bool AdicionarCarrinho(UsuarioConsumidor usuario, Produto produto, int quantidade, Envio envio = null){
+    public bool AdicionarCarrinho(UsuarioConsumidor usuario, Produto produto, int quantidade, UsuarioEmpreendedor usuarioEmpreendedor, Envio envio = null){
       Venda venda = this._IVendaRepository.GetCarrinho(usuario);
       ItemVenda ItemVenda = venda.ItemVendas.Where( x => x.Produto.Id == produto.Id).FirstOrDefault();
       if(ItemVenda == null){
 
         if(envio == null) envio = new Correio(false, 50);
-        ItemVenda = new ItemVenda(produto: produto, Quantidade: quantidade, Envio: envio);
-        
+        ItemVenda = new ItemVenda(produto: produto, Quantidade: quantidade, Envio: envio, usuarioEmpreendedor: usuarioEmpreendedor);
+        venda.ItemVendas.Add(ItemVenda);
       }else ItemVenda.Quantidade += quantidade;
 
-      return this._IItemVendaRepository.save(ItemVenda);
+      return this._IVendaRepository.save(venda) && this._IItemVendaRepository.save(ItemVenda);
     }
     
   }
