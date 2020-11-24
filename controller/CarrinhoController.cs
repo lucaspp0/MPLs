@@ -43,7 +43,7 @@ namespace MPL.controller
         
       }else ItemVenda.Quantidade += quantidade;
 
-      return this._IItemVendaRepository.save(ItemVenda);
+      return this._IVendaRepository.save(venda) && this._IItemVendaRepository.save(ItemVenda);
     }
     
   }

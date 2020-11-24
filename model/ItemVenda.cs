@@ -37,6 +37,7 @@ namespace MPL.model
       public ItemVenda(){}
       public ItemVenda(Produto produto, int Quantidade, Envio Envio){
           this.status = "Pendente";
+          this.produto = produto;
           this.Envio = Envio;
           this.Frete = this.Envio.CalcularFrete(produto.Valor);
       }
