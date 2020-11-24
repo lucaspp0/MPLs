@@ -6,6 +6,9 @@ using MPL.View;
 using MPL.model;
 using MPL.repository;
 
+using System.Linq;
+
+
 namespace MPL.controller
 {
     public class ClienteEmpreenderController
@@ -23,22 +26,26 @@ namespace MPL.controller
 
         public void SelecionarProduto(int idProduto)
         {
-
             List<UsuarioEmpreendedor> usuarioEmpreenderList = (_IUserEmpreendedorRepository.selectAll());
-
-
         }
 
         public bool RegisterClienteEmpreende(string nome, string login, string senha, string cnpj)
         {
+            bool statusSave;
+
             UsuarioEmpreendedor user = new UsuarioEmpreendedor();
             user.Cnpj = cnpj;
             user.Login = login;
             user.Senha = senha;
             user.Nome = nome;
 
-            bool statusSave = _IUserEmpreendedorRepository.save(user);
+            Pessoa validEmpreender = FilterUser((_IUserEmpreendedorRepository.selectAll()).Select(x => (Pessoa)x).ToList(), senha, login);
 
+             if(validEmpreender != null) 
+                statusSave = false;    
+            else 
+                statusSave = _IUserEmpreendedorRepository.save(user);
+                
             return statusSave;
         }
 
@@ -48,5 +55,14 @@ namespace MPL.controller
             usuarioLogado.Estoque[index].Quantidade += quantidade;
             Salvar(usuarioLogado);
         }
+
+        private Pessoa FilterUser(List<Pessoa> pessoas, string senha, string login)
+        {
+            return pessoas
+                .Where(usuarioEmpreendedor => usuarioEmpreendedor.Senha == senha && usuarioEmpreendedor.Login == login)
+                .FirstOrDefault();
+        }
+
+
     }
 }
