@@ -48,7 +48,7 @@ namespace MPL.utils
       // Controller
 
       ClientController = new ClientController(IUserRepository, IContaTransportadoraRepository, IUserEmpreendedorRepository,IVendaRepository,IItemVendaRepository);
-      ClienteEmpreenderController = new ClienteEmpreenderController(IUserEmpreendedorRepository);
+      ClienteEmpreenderController = new ClienteEmpreenderController(IUserEmpreendedorRepository,IItemVendaRepository);
       ClienteConsumidorController = new ClienteConsumidorController(IUserRepository);
       CarrinhoController = new CarrinhoController(IVendaRepository, IItemVendaRepository);
       ItemEstoqueController = new ItemEstoqueController(IItemEstoqueRepository);
