@@ -15,11 +15,12 @@ namespace MPL.controller
   {
     IUserRepository _IUserRepository;
     IUserEmpreendedorRepository _IUserEmpreendedorRepository;
-    ITransportadorRepository _ITransportadorRepository;
+
+    IContaTransportadoraRepository _ITransportadorRepository;
     private IVendaRepository _IVendaRepository;
     private IItemVendaRepository _IItemVendaRepository;
 
-    public ClientController(IUserRepository IUserRepository, ITransportadorRepository ITransportadorRepository, IUserEmpreendedorRepository IUserEmpreendedorRepository,IVendaRepository IVendaRepository, IItemVendaRepository IItemVendaRepos)
+    public ClientController(IUserRepository IUserRepository, IContaTransportadoraRepository ITransportadorRepository, IUserEmpreendedorRepository IUserEmpreendedorRepository,IVendaRepository IVendaRepository, IItemVendaRepository IItemVendaRepos)
     {
       _IUserRepository = IUserRepository;
       _IUserEmpreendedorRepository = IUserEmpreendedorRepository;
@@ -54,12 +55,9 @@ namespace MPL.controller
       return pessoaEncontrada != null;
     }
 
-    public List<Venda> returnBuyProducts(){
-      
-      List<Venda> list = _IVendaRepository.selectAll();
+    public List<Venda> returnBuyProducts(){      
+      List<Venda> list = _IVendaRepository.GetVendas(MainViewManager.CurrentUser as UsuarioConsumidor);
 
-      list.ForEach(x => ShowScreen($"{x}"));
-    
       return list;
     }
   }

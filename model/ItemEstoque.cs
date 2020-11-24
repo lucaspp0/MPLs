@@ -21,6 +21,7 @@ namespace MPL.model
           get { return endereco; }
           set { endereco = value; }
       }
+      public ItemEstoque(){}
       public ItemEstoque(int quantidade,Produto produto,string endereco){
           this.Quantidade = quantidade;
           this.Produto = produto;

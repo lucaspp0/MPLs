@@ -8,6 +8,14 @@ namespace MPL.model
           get { return prioridadeEspecializada; }
           set { prioridadeEspecializada = value; }
       }
+
+      public TransportadorPrivada(){
+
+      }
+
+      public TransportadorPrivada(bool prioridadeEspecializada){
+          this.PrioridadeEspecializada = prioridadeEspecializada;
+      }
       
          
   }

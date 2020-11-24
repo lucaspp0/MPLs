@@ -34,7 +34,7 @@ namespace MPL.model
           get { return envio; }
           set { envio = value; }
       }
-      
+      public ItemVenda(){}
       public ItemVenda(Produto produto, int Quantidade, Envio Envio){
           this.status = "Pendente";
           this.Envio = Envio;

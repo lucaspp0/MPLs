@@ -34,6 +34,7 @@ namespace MPL.model
           this.endereco = endereco;
           this.UsuarioConsumidory = usuarioConsumidor;
       }
+      public Venda(){}
       public Venda(UsuarioConsumidor usuarioConsumidor){
           this.UsuarioConsumidory = usuarioConsumidor;
       }
