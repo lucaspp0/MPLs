@@ -16,11 +16,18 @@ namespace MPL.View.Empreendedor.Vendas
         for(i=0;i<lista.Count;i++){
           ShowScreen((i+1)+" | Nome: "+lista[i].Produto.Nome+" | Quantidade: "+lista[i].Quantidade);
         }
+        ShowScreen(""+i);
         int input = GetInputInt("Digite o número do produto para obter uma descrição ou digite -1 para sair");
-
-        if(input == (i+1)){
+        ShowScreen(""+i);
+        ShowScreen(""+input);
+        if(input <= i && input >= 0 ){
            ShowScreen($@"Detalhe do produto: 
-            {lista[input-1].Produto.ToString()}Qtd. Estoque: {lista[input-1].Quantidade}");
+                  Nome: {lista[input-1].Produto.Nome}
+                 Valor: {lista[input-1].Produto.Valor}
+             Categoria: {lista[input-1].Produto.Categoria}
+            Quantidade: {lista[input-1].Quantidade}
+
+            ");
 
 
         }else if(input == -1){
