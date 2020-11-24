@@ -45,6 +45,7 @@ namespace MPL.model
     public ItemVenda(Produto produto, int Quantidade, Envio Envio, UsuarioEmpreendedor usuarioEmpreendedor)
     {
       this.UsuarioEmpreendedor = usuarioEmpreendedor;
+      this.Quantidade = Quantidade;
       this.status = "Pendente";
       this.produto = produto;
       this.Envio = Envio;

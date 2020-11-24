@@ -32,7 +32,7 @@ namespace MPL.View.Consumidor.vendas
           return;
         }else{
           venda.ItemVendas.ForEach( itemVenda => {
-            ShowScreen($@"produto: \n {itemVenda.Produto.ToString()}
+            ShowScreen($@"produto: {itemVenda.Produto.ToString()}
             Quantidade: {itemVenda.Quantidade}
             Status: {itemVenda.Status}");
           } );

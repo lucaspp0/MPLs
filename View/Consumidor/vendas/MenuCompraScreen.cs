@@ -22,8 +22,7 @@ namespace MPL.View.Consumidor.vendas
       List<Venda> listProdutcs = Injector.ClientController.returnBuyProducts();
 
       foreach (var x in listProdutcs)
-      {
-        ShowScreen($"local de saída {x.Endereco}");          
+      {      
         x.ItemVendas.ForEach(item => ShowScreen($"Nome do produto: {item.Produto.Nome} || Quantidade comprada: {item.Quantidade} || Valor do frete: R${item.Frete}"));
       }
 

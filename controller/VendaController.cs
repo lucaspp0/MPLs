@@ -24,9 +24,10 @@ namespace MPL.controller
     }
 
     public List<ItemVenda> GetAllItensPendente() =>
-      this._IItemVendaRepository.selectAll().FindAll( x => x.Status.ToLower().Contains("pendenter"));
+      this._IItemVendaRepository.selectAll().FindAll( x => x.Status.ToLower().Contains("pendente"));
 
     public bool SalvarVenda(Venda venda) => this._IVendaRepository.save(venda);
+    public bool SalvarItemVenda(ItemVenda itemVenda) => this._IItemVendaRepository.save(itemVenda);
 
     public bool RemoverItemVenda(int idItemVenda) =>
       this._IItemVendaRepository.delete(idItemVenda);
@@ -52,7 +53,7 @@ namespace MPL.controller
         return false;
       }
     }
-
+    
     public Venda ObterVendaPorItemVenda(ItemVenda itemVenda){
       return _IVendaRepository.selectAll().Where(x=>x.ItemVendas.Any(y=>y.Id==itemVenda.Id)).FirstOrDefault();
 
