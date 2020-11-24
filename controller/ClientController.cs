@@ -13,9 +13,9 @@ namespace MPL.controller
   {
     IUserRepository _IUserRepository;
     IUserEmpreendedorRepository _IUserEmpreendedorRepository;
-    ITransportadorRepository _ITransportadorRepository;
+    IContaTransportadoraRepository _ITransportadorRepository;
 
-    public ClientController(IUserRepository IUserRepository, ITransportadorRepository ITransportadorRepository, IUserEmpreendedorRepository IUserEmpreendedorRepository)
+    public ClientController(IUserRepository IUserRepository, IContaTransportadoraRepository ITransportadorRepository, IUserEmpreendedorRepository IUserEmpreendedorRepository)
     {
       _IUserRepository = IUserRepository;
       _IUserEmpreendedorRepository = IUserEmpreendedorRepository;

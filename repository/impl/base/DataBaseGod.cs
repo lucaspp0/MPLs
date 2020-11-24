@@ -22,12 +22,6 @@ namespace MPL.repository.impl
       set { usuarioConsumidor = value; } 
     }
 
-    private List<ContaTransportadora> contaTransportador = new List<ContaTransportadora>();
-    public List<ContaTransportadora> ContaTransportador { 
-      get { return contaTransportador; } 
-      set { contaTransportador = value; } 
-    }
-
     private List<UsuarioEmpreendedor> usuarioEmpreender = new List<UsuarioEmpreendedor>();
     public List<UsuarioEmpreendedor> UsuarioEmpreender { 
       get { return usuarioEmpreender; } 
@@ -55,6 +49,12 @@ namespace MPL.repository.impl
     public List<Produto> Produto { 
       get { return produto; } 
       set { produto = value; } 
+    }
+
+    private List<ContaTransportadora> contaTransportadora = new List<ContaTransportadora>();
+    public List<ContaTransportadora> ContaTransportadora { 
+      get { return ContaTransportadora; } 
+      set { ContaTransportadora = value; } 
     }
 
   }
