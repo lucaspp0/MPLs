@@ -23,10 +23,19 @@ Escolha o tipo de usuário: ");
 
       if(tipo == "1") {
         string cnpj = GetInput("Informe o CPNJ: ");
+        while(cnpj.Length != 13 ) {
+          ShowScreen("informe um CNPJ válido");
+          cnpj = GetInput("Informe o CPNJ: ");
+        }
         loginSucess = Injector.ClienteEmpreenderController.RegisterClienteEmpreende(nome,login,senha,cnpj);
       }else if(tipo == "2"){
         string cpf = GetInput("Informe o CPF: ");
+        while(cpf.Length != 11) {
+          ShowScreen("informe um CPF válido");  
+          cpf = GetInput("Informe o CPF: ");
+        }
         loginSucess = Injector.ClienteConsumidorController.RegisterClienteConsumidor(nome,login,senha,cpf);
+        
       }else{
         ShowScreen("tipo de usuário invalido");  
         GetWaitingInput();
