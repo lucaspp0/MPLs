@@ -10,9 +10,6 @@ namespace MPL.View.Empreendedor.Vendas
 {
     public class CadastrarProdutosScreen : IScreen
     {
-
-        private ProdutoController _ProdutoController;
-        private ItemEstoque _ItemEstoqueController;
         
         public void Show()
         {
@@ -33,7 +30,6 @@ Digite a opção: ");
                 int estoqueQtde = GetInputInt("Digite quantos deste produto deseja adicionar ao estoque: ");
                 string endereco = GetInput("Digite o endereço onde será estocado o produto: ");
 
-                
                 UsuarioEmpreendedor usuarioLogado = (MainViewManager.CurrentUser as UsuarioEmpreendedor);
                 
                 Produto produto = new Produto(nome, peso, valor, categoria);
@@ -71,7 +67,6 @@ Digite a opção: ");
                         }
                         Injector.ClienteEmpreenderController.AcrescentarQtde(quantidade, choose-1);
                         MainViewManager.ChangeScreen(new MenuEmpreendedorScreen());
-                        
                 }
             }
             else if (result == "3")
