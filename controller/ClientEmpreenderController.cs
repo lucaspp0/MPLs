@@ -14,13 +14,14 @@ namespace MPL.controller
     public class ClienteEmpreenderController
     {
         IUserEmpreendedorRepository _IUserEmpreendedorRepository;
-
+        IItemVendaRepository _IItemVendaRepository;
 
         public bool Salvar(UsuarioEmpreendedor usuarioEmpreendedor) => this._IUserEmpreendedorRepository.save(usuarioEmpreendedor);
 
-        public ClienteEmpreenderController(IUserEmpreendedorRepository IUserEmpreendedorRepository)
+        public ClienteEmpreenderController(IUserEmpreendedorRepository IUserEmpreendedorRepository,IItemVendaRepository IItemVendaRepository)
         {
             _IUserEmpreendedorRepository = IUserEmpreendedorRepository;
+            _IItemVendaRepository = IItemVendaRepository;
         }
 
         public void SelecionarProduto(int idProduto)
@@ -61,6 +62,14 @@ namespace MPL.controller
                 .Where(usuarioEmpreendedor => usuarioEmpreendedor.Senha == senha && usuarioEmpreendedor.Login == login)
                 .FirstOrDefault();
         }
+
+        public List<ItemVenda> RetornarItemVendas(){
+            UsuarioEmpreendedor usuario = (MainViewManager.CurrentUser as UsuarioEmpreendedor);
+            return _IItemVendaRepository.selectAll().FindAll(x=>x.UsuarioEmpreendedor.Id==usuario.Id);
+            
+        }
+
+        
 
 
     }

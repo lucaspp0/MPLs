@@ -55,6 +55,11 @@ namespace MPL.controller
       }
     }
 
+    public Venda ObterVendaPorItemVenda(ItemVenda itemVenda){
+      return _IVendaRepository.selectAll().Where(x=>x.ItemVendas.Any(y=>y.Id==itemVenda.Id)).FirstOrDefault();
+
+    }
+
   }
 
 }
