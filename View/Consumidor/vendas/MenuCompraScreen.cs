@@ -1,5 +1,7 @@
 using System.Linq;
 using System.Collections.Generic;
+using MPL.controller;
+using System;
 
 using MPL.utils;
 using MPL.model;
@@ -14,8 +16,20 @@ namespace MPL.View.Consumidor.vendas
   {
     public void Show()
     {
-      ShowScreen("mostrar Todas as comprars do usuario");
+      
+      ShowScreen("------comprars do usuario------");
+      
+      //ClientController = new ClientController(IUserRepository, ITransportadorRepository, IUserEmpreendedorRepository); 
+      List<Venda> listProdutcs = Injector.ClientController.returnBuyProducts();
+
+      
+      listProdutcs.ForEach(x => ShowScreen($"depois eu falo com ela {x}") );
+        
+      
       GetWaitingInput();
+      MainViewManager.ChangeScreen(new MenuConsumidorScreen());
     }
+
+    
   }
 }

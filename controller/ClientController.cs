@@ -2,6 +2,8 @@ using System.Collections.Generic;
 
 using System;
 using MPL.View;
+using MPL.utils;
+using static MPL.utils.ViewUtils;
 using MPL.model;
 using MPL.repository;
 
@@ -14,12 +16,16 @@ namespace MPL.controller
     IUserRepository _IUserRepository;
     IUserEmpreendedorRepository _IUserEmpreendedorRepository;
     ITransportadorRepository _ITransportadorRepository;
+    private IVendaRepository _IVendaRepository;
+    private IItemVendaRepository _IItemVendaRepository;
 
-    public ClientController(IUserRepository IUserRepository, ITransportadorRepository ITransportadorRepository, IUserEmpreendedorRepository IUserEmpreendedorRepository)
+    public ClientController(IUserRepository IUserRepository, ITransportadorRepository ITransportadorRepository, IUserEmpreendedorRepository IUserEmpreendedorRepository,IVendaRepository IVendaRepository, IItemVendaRepository IItemVendaRepos)
     {
       _IUserRepository = IUserRepository;
       _IUserEmpreendedorRepository = IUserEmpreendedorRepository;
       _ITransportadorRepository = ITransportadorRepository;
+      _IItemVendaRepository = IItemVendaRepos;
+      _IVendaRepository = IVendaRepository;
 
     }
 
@@ -46,6 +52,15 @@ namespace MPL.controller
 
       MainViewManager.CurrentUser = pessoaEncontrada;
       return pessoaEncontrada != null;
+    }
+
+    public List<Venda> returnBuyProducts(){
+      
+      List<Venda> list = _IVendaRepository.selectAll();
+
+      list.ForEach(x => ShowScreen($"{x}"));
+    
+      return list;
     }
   }
 
