@@ -31,6 +31,8 @@ namespace MPL.controller
       return venda != null;
     }
 
+    public Venda Getcarrinho(UsuarioConsumidor usuario) => this._IVendaRepository.GetCarrinho(usuario);
+
     public bool AdicionarCarrinho(UsuarioConsumidor usuario, Produto produto, int quantidade, Envio envio = null){
       Venda venda = this._IVendaRepository.GetCarrinho(usuario);
       ItemVenda ItemVenda = venda.ItemVendas.Where( x => x.Produto.Id == produto.Id).FirstOrDefault();

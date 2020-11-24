@@ -21,15 +21,11 @@ namespace MPL.controller
         public ClienteEmpreenderController(IUserEmpreendedorRepository IUserEmpreendedorRepository)
         {
             _IUserEmpreendedorRepository = IUserEmpreendedorRepository;
-
         }
 
         public void SelecionarProduto(int idProduto)
         {
-
             List<UsuarioEmpreendedor> usuarioEmpreenderList = (_IUserEmpreendedorRepository.selectAll());
-
-
         }
 
         public bool RegisterClienteEmpreende(string nome, string login, string senha, string cnpj)
@@ -44,14 +40,11 @@ namespace MPL.controller
 
             Pessoa validEmpreender = FilterUser((_IUserEmpreendedorRepository.selectAll()).Select(x => (Pessoa)x).ToList(), senha, login);
 
-
              if(validEmpreender != null) 
                 statusSave = false;    
             else 
                 statusSave = _IUserEmpreendedorRepository.save(user);
-
-            
-
+                
             return statusSave;
         }
 

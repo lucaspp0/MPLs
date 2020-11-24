@@ -37,6 +37,7 @@ Selecione uma das opções acima: ");
       {
           case 1:
             AdicionarAoCarrinho();
+            MainViewManager.ChangeScreen(new MenuConsumidorScreen());
             break;
           case 2:
             VoltarListagemProduto();
@@ -54,8 +55,8 @@ Selecione uma das opções acima: ");
     private void AdicionarAoCarrinho(){
       UsuarioConsumidor UsuarioConsumidor = (MainViewManager.CurrentUser as UsuarioConsumidor);
       Envio envio = null;
-      int quantidade = GetInputInt("Digite a quantidade que deseja comprar, ou -1 para sair");
-      while(quantidade != -1 && quantidade >= this._itemEstoque.Quantidade){
+      int quantidade = GetInputInt("Digite a quantidade que deseja comprar, ou -1 para sair: ");
+      while(quantidade != -1 && quantidade > this._itemEstoque.Quantidade){
         quantidade = GetInputInt(@"quantidade maior que o estoque permitido
 Digite um valor válido, ou -1 para sair: ");
         }

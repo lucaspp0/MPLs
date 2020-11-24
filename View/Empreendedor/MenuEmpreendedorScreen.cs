@@ -18,8 +18,7 @@ namespace MPL.View.Empreendedor
       1 - Visualizar Vendas
       2 - Visualizar produtos
       3 - Cadastrar produtos
-      4 - Deletar Produtos
-      5 - Sair
+      4 - Sair
 
 Digite a opção: ");
 
